@@ -86,9 +86,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a87af60c9041d859736acb129144e563b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a87af60c9041d859736acb129144e563b">Transaction</a> (std::string json_data)</td></tr>
 <tr class="memdesc:a87af60c9041d859736acb129144e563b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> constructor creates a new <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> using the serialized JSON data from another <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. The given JSON string should be valid and from another <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. <a href="class_tx_1_1_transaction.html#a87af60c9041d859736acb129144e563b">More...</a><br /></td></tr>
 <tr class="separator:a87af60c9041d859736acb129144e563b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aaa39fa57e151accd6c162be5799cac"><td class="memItemLeft" align="right" valign="top"><a id="a9aaa39fa57e151accd6c162be5799cac"></a>
-std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a9aaa39fa57e151accd6c162be5799cac">get_hash</a> ()</td></tr>
-<tr class="memdesc:a9aaa39fa57e151accd6c162be5799cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is used to return the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. The hash is calculated using all the Transactions's data members, except its own hash. Therefore, all the data members must be set before this method can be called. If this method is called before all the data members can be initialized and assigned the correct values, then an error may not be thrown. <br /></td></tr>
+<tr class="memitem:a3e0c647ca612ac5e531d1d55daff7bfb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a3e0c647ca612ac5e531d1d55daff7bfb">to_json</a> ()</td></tr>
+<tr class="memdesc:a3e0c647ca612ac5e531d1d55daff7bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_tx_1_1_transaction.html#a3e0c647ca612ac5e531d1d55daff7bfb" title="The to_json() method serializes the Transaction object and returns it as a JSON string.">to_json()</a> method serializes the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object and returns it as a JSON string.  <a href="class_tx_1_1_transaction.html#a3e0c647ca612ac5e531d1d55daff7bfb">More...</a><br /></td></tr>
+<tr class="separator:a3e0c647ca612ac5e531d1d55daff7bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aaa39fa57e151accd6c162be5799cac"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a9aaa39fa57e151accd6c162be5799cac">get_hash</a> ()</td></tr>
+<tr class="memdesc:a9aaa39fa57e151accd6c162be5799cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is used to return the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. The hash is calculated using all the Transactions's data members, except its own hash. Therefore, all the data members must be set before this method can be called. If this method is called before all the data members can be initialized and assigned the correct values, then an error may not be thrown.  <a href="class_tx_1_1_transaction.html#a9aaa39fa57e151accd6c162be5799cac">More...</a><br /></td></tr>
 <tr class="separator:a9aaa39fa57e151accd6c162be5799cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -192,6 +194,63 @@ std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9aaa39fa57e151accd6c162be5799cac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aaa39fa57e151accd6c162be5799cac">&#9670;&nbsp;</a></span>get_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Tx::Transaction::get_hash </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is used to return the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. The hash is calculated using all the Transactions's data members, except its own hash. Therefore, all the data members must be set before this method can be called. If this method is called before all the data members can be initialized and assigned the correct values, then an error may not be thrown. </p>
+<dl class="section return"><dt>Returns</dt><dd>This method returns the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. </dd></dl>
+
+</div>
+</div>
+<a id="a3e0c647ca612ac5e531d1d55daff7bfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e0c647ca612ac5e531d1d55daff7bfb">&#9670;&nbsp;</a></span>to_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Tx::Transaction::to_json </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="class_tx_1_1_transaction.html#a3e0c647ca612ac5e531d1d55daff7bfb" title="The to_json() method serializes the Transaction object and returns it as a JSON string.">to_json()</a> method serializes the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object and returns it as a JSON string. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a JSON string to be used to serialize and deserialize <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> objects. </dd></dl>
 
 </div>
 </div>

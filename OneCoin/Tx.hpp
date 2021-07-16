@@ -118,10 +118,19 @@ namespace Tx {
             }
 
             /**
+             * @brief The to_json() method serializes the Transaction object and returns it as a JSON string.
+             * @return  Returns a JSON string to be used to serialize and deserialize Transaction objects.
+             */
+            std::string to_json() {
+                return this->json_string.dump();
+            }
+
+            /**
              * @brief This method is used to return the hash of the Transaction object. The hash is calculated using
              * all the Transactions's data members, except its own hash. Therefore, all the data members must be set before this method
              * can be called. If this method is called before all the data members can be initialized and assigned the correct values, then an error
              * may not be thrown.
+             * @return This method returns the hash of the Transaction object.
              */
             std::size_t get_hash() {
                 return std::hash<std::string>()(
