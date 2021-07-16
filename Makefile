@@ -9,3 +9,5 @@ run:
 	g++ $(CPPFLAGS) $(CFLAGS) -std=c++11 -I. OneCoin/*.cpp -o app -lcrypto
 	./app
 	rm ./app
+docs:
+	doxygen doc/Doxyfile
