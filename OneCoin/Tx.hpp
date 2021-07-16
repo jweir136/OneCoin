@@ -103,7 +103,18 @@ namespace Tx {
              * for the Transaction class.
              */
             Transaction(std::string json_data) {
+                this->json_string = json::parse(json_data);
 
+                this->epoch = this->json_string["time"];
+                this->author = this->json_string["author"];
+                this->input_block = this->json_string["input"]["block"];
+                this->input_tx = this->json_string["input"]["tx"];
+                this->input_hash = this->json_string["input"]["hash"];
+                this->output_user_key = this->json_string["output"]["reciever"];
+                this->nonce = this->json_string["nonce"];
+                this->signature = this->json_string["signature"];
+                this->output_hash = this->json_string["output"]["hash"];
+                this->hash = this->json_string["hash"];
             }
 
             /**
