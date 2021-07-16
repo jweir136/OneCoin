@@ -91,6 +91,14 @@ namespace Tx {
             }
 
             /**
+             * @brief This method returns the time that the Transaction was created.
+             * @return  Returns the time the Transaction was created as a <i>size_t</i> type.
+             */
+            std::size_t get_time() {
+                return this->epoch;
+            }
+
+            /**
              * @brief The Transaction constructor creates a new Transaction using the serialized JSON data from another Transaction object.
              * The given JSON string should be valid and from another Transaction object.
              * .
