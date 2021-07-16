@@ -32,3 +32,6 @@
 *.app
 
 *.dSYM/*
+
+# public and private key files
+*.pem
