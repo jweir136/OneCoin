@@ -2,6 +2,9 @@
 #define TX_HPP
 
 #include <string>
+#include <ctime>
+#include <functional>
+
 #include <include/catch2/json.hpp>
 
 using namespace nlohmann;
@@ -52,9 +55,10 @@ namespace Tx {
              * @brief The Transaction constructor creates a new Transaction object using the data provided by the user.
              * This provided data includes the public key, the user to send the currency unit to, and the input info.
              * .
-             * @param public_key_filepath   This is a string directing the constructor where to find the PEM file
-             * containing the <i>Public Key</i> of the Transaction's author. If the file cannot be found, a <i>runtime_error</i>
-             * is thrown.
+             * @param public_key   This is a string containing the PEM file data
+             * of the <i>Public Key</i> of the Transaction's author. The key being invalid may result in a <i>runtime_error</i> being thrown.
+             * If this is the case, then be sure that the public key is valid and that newline tokens (\\n) are being included wherever a linebreak
+             * occurs in the PEM file.
              * @param input_block   This is the hash of the block where the input token is located. The input token
              * is the input to the Transaction, it directs the <i>Blockchain</i> where to find the currency units being spent.
              * Warning: The validity of input_block is not checked when the constructor is being called, however an incorrect
@@ -67,8 +71,17 @@ namespace Tx {
              * should be a basic string, in PEM format. Be sure not to omit newline (\\n) characters when newlines are present in the PEM
              * file.
              */
-            Transaction(std::string public_key_filepath, std::size_t input_block, std::size_t input_tx, std::string reciever) {
-
+            Transaction(std::string public_key, std::size_t input_block, std::size_t input_tx, std::string reciever) {
+                this->epoch = (ulong)time(NULL);
+                this->author = public_key;
+                this->input_block = input_block;
+                this->input_tx = input_tx;
+                this->input_hash = std::hash<std::string>()(std::to_string(this->input_block) + std::to_string(this->input_tx));
+                this->output_user_key = reciever;
+                this->nonce = 0;                    
+                this->signature = "";
+                this->output_hash = std::hash<std::string>()(this->output_user_key);
+                this->hash = get_hash();
             }
 
             /**
@@ -80,6 +93,23 @@ namespace Tx {
              */
             Transaction(std::string json_data) {
 
+            }
+
+            /**
+             * @brief This method is used to return the hash of the Transaction object. The hash is calculated using
+             * all the Transactions's data members, except its own hash. Therefore, all the data members must be set before this method
+             * can be called. If this method is called before all the data members can be initialized and assigned the correct values, then an error
+             * may not be thrown.
+             */
+            std::size_t get_hash() {
+                return std::hash<std::string>()(
+                    std::to_string(this->epoch) +
+                    this->author +
+                    std::to_string(this->nonce) +
+                    this->signature +
+                    std::to_string(this->input_hash) +
+                    std::to_string(this->output_hash)
+                );
             }
 
     };
