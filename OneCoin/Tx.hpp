@@ -82,6 +82,17 @@ namespace Tx {
                 this->signature = "";
                 this->output_hash = std::hash<std::string>()(this->output_user_key);
                 this->hash = get_hash();
+
+                this->json_string["time"] = this->epoch;
+                this->json_string["author"] = this->author;
+                this->json_string["nonce"] = this->nonce;
+                this->json_string["signature"] = this->signature;
+                this->json_string["hash"] = this->hash;
+                this->json_string["input"]["block"] = this->input_block;
+                this->json_string["input"]["tx"] = this->input_tx;
+                this->json_string["input"]["hash"] = this->input_hash;
+                this->json_string["output"]["reciever"] = this->output_user_key;
+                this->json_string["output"]["hash"] = this->output_hash;
             }
 
             /**
