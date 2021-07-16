@@ -66,6 +66,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_tx_1_1_transaction-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Tx::Transaction Class Reference</div>  </div>
@@ -76,17 +77,121 @@ $(function() {
  <a href="class_tx_1_1_transaction.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_tx_8hpp_source.html">Tx.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3966c03222787f89ffacfbc754eaa556"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a3966c03222787f89ffacfbc754eaa556">Transaction</a> (std::string public_key_filepath, std::size_t input_block, std::size_t input_tx, std::string reciever)</td></tr>
+<tr class="memdesc:a3966c03222787f89ffacfbc754eaa556"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> constructor creates a new <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object using the data provided by the user. This provided data includes the public key, the user to send the currency unit to, and the input info. <a href="class_tx_1_1_transaction.html#a3966c03222787f89ffacfbc754eaa556">More...</a><br /></td></tr>
+<tr class="separator:a3966c03222787f89ffacfbc754eaa556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87af60c9041d859736acb129144e563b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a87af60c9041d859736acb129144e563b">Transaction</a> (std::string json_data)</td></tr>
+<tr class="memdesc:a87af60c9041d859736acb129144e563b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> constructor creates a new <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> using the serialized JSON data from another <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. The given JSON string should be valid and from another <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. <a href="class_tx_1_1_transaction.html#a87af60c9041d859736acb129144e563b">More...</a><br /></td></tr>
+<tr class="separator:a87af60c9041d859736acb129144e563b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object is used to represent the transfer of digital currency. The role of this object is to keep track of where currency is being transferred to. </p>
 <p>All Transactions must have exactly one input and output. An input is comprised of the hashes of the block and <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> where the input is located, and the hash of the inputs. An output is comprised of the public key of the user the currency is being sent to and the hash of the output.</p>
 <p>Transactions have five additional data members:</p><ul>
-<li>&lt; b&gt;epoch&lt; /b&gt; is the time that the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> was created in &lt; i&gt;unsigned long&lt; /i&gt; form.</li>
-<li>&lt; b&gt;author&lt; /b&gt; is the public key of the user that created and <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>. This is in PEM format.</li>
-<li>&lt; b&gt;hash&lt; b/&gt; is the hash of the Transactions. The hash uses the all the data members, except the nonce.</li>
-<li>&lt; b&gt;nonce&lt; b/&gt; is used to calculate and verify the &lt; i&gt;Proof of Work&lt; /i&gt;. A nonce is considered valid if and only if the hash of the nonce + the hash ends in at last four zeros. The nonce is calculated using a stochastic method.</li>
-<li>&lt; b&gt;signature&lt; /b&gt; is used to verify that a <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> was created by the owner of the currency units being spent. The signature is the ECDSA signature of the hash when signed by the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s author. </li>
+<li><b>epoch</b> is the time that the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> was created in <em>unsigned long</em> form.</li>
+<li><b>author</b> is the public key of the user that created and <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>. This is in PEM format.</li>
+<li><b>hash is the hash of the Transactions. The hash uses the all the data members, except the nonce.</b></li>
+<li><b><b>nonce is used to calculate and verify the <em>Proof of Work</em>. A nonce is considered valid if and only if the hash of the nonce + the hash ends in at last four zeros. The nonce is calculated using a stochastic method.</b></b></li>
+<li><b><b><b>signature</b> is used to verify that a <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> was created by the owner of the currency units being spent. The signature is the ECDSA signature of the hash when signed by the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s author. </b></b></li>
 </ul>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3966c03222787f89ffacfbc754eaa556"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3966c03222787f89ffacfbc754eaa556">&#9670;&nbsp;</a></span>Transaction() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tx::Transaction::Transaction </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>public_key_filepath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>input_block</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>input_tx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>reciever</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> constructor creates a new <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object using the data provided by the user. This provided data includes the public key, the user to send the currency unit to, and the input info.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">public_key_filepath</td><td>This is a string directing the constructor where to find the PEM file containing the <em>Public Key</em> of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s author. If the file cannot be found, a <em>runtime_error</em> is thrown. </td></tr>
+    <tr><td class="paramname">input_block</td><td>This is the hash of the block where the input token is located. The input token is the input to the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>, it directs the <em>Blockchain</em> where to find the currency units being spent. Warning: The validity of input_block is not checked when the constructor is being called, however an incorrect input_block will cause the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> to be null and void. </td></tr>
+    <tr><td class="paramname">input_tx</td><td>This is the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> where the input token is located. This directs the <em>Blockchain</em> where to look for the inputed currency unit. Warning: The validity of input_block is not checked when the constructor is being called, however an incorrect input_block will cause the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> to be null and void. </td></tr>
+    <tr><td class="paramname">reciever</td><td>This is the <em>public key</em> of the user to which the currency units are being sent to. The key should be a basic string, in PEM format. Be sure not to omit newline (\n) characters when newlines are present in the PEM file. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a87af60c9041d859736acb129144e563b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87af60c9041d859736acb129144e563b">&#9670;&nbsp;</a></span>Transaction() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tx::Transaction::Transaction </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>json_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> constructor creates a new <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> using the serialized JSON data from another <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. The given JSON string should be valid and from another <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json_data</td><td>This is the JSON string to use to create the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. This input should be a valid JSON string for the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> class. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>OneCoin/<a class="el" href="_tx_8hpp_source.html">Tx.hpp</a></li>
 </ul>
 </div><!-- contents -->

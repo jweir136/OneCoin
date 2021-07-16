@@ -99,11 +99,23 @@ $(function() {
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            std::string     output_user_key;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            std::size_t     output_hash;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    };</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_tx_1_1_transaction.html#a3966c03222787f89ffacfbc754eaa556">   70</a></span>&#160;            <a class="code" href="class_tx_1_1_transaction.html#a3966c03222787f89ffacfbc754eaa556">Transaction</a>(std::string public_key_filepath, std::size_t input_block, std::size_t input_tx, std::string reciever) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_tx_1_1_transaction.html#a87af60c9041d859736acb129144e563b">   81</a></span>&#160;            <a class="code" href="class_tx_1_1_transaction.html#a87af60c9041d859736acb129144e563b">Transaction</a>(std::string json_data) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    };</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_tx_1_1_transaction_html"><div class="ttname"><a href="class_tx_1_1_transaction.html">Tx::Transaction</a></div><div class="ttdoc">A Transaction object is used to represent the transfer of digital currency. The role of this object i...</div><div class="ttdef"><b>Definition:</b> Tx.hpp:31</div></div>
+<div class="ttc" id="aclass_tx_1_1_transaction_html_a3966c03222787f89ffacfbc754eaa556"><div class="ttname"><a href="class_tx_1_1_transaction.html#a3966c03222787f89ffacfbc754eaa556">Tx::Transaction::Transaction</a></div><div class="ttdeci">Transaction(std::string public_key_filepath, std::size_t input_block, std::size_t input_tx, std::string reciever)</div><div class="ttdoc">The Transaction constructor creates a new Transaction object using the data provided by the user....</div><div class="ttdef"><b>Definition:</b> Tx.hpp:70</div></div>
+<div class="ttc" id="aclass_tx_1_1_transaction_html_a87af60c9041d859736acb129144e563b"><div class="ttname"><a href="class_tx_1_1_transaction.html#a87af60c9041d859736acb129144e563b">Tx::Transaction::Transaction</a></div><div class="ttdeci">Transaction(std::string json_data)</div><div class="ttdoc">The Transaction constructor creates a new Transaction using the serialized JSON data from another Tra...</div><div class="ttdef"><b>Definition:</b> Tx.hpp:81</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
