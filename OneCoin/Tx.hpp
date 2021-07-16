@@ -25,9 +25,7 @@ namespace Tx {
      *  Transactions have five additional data members:
      *      - <b>epoch</b> is the time that the Transaction was created in <i>unsigned long</i> form.
      *      - <b>author</b> is the public key of the user that created and Transaction. This is in PEM format.
-     *      - <b>hash<b/> is the hash of the Transactions. The hash uses the all the data members, except the nonce.
-     *      - <b>nonce<b/> is used to calculate and verify the <i>Proof of Work</i>. A nonce is considered valid if and only if
-     *         the hash of the nonce + the hash ends in at last four zeros. The nonce is calculated using a stochastic method.
+     *      - <b>hash<b/> is the hash of the Transactions. The hash uses the all the data members.
      *      - <b>signature</b> is used to verify that a Transaction was created by the owner of the currency units being spent.
      *          The signature is the ECDSA signature of the hash when signed by the Transaction's author.
      */
@@ -36,7 +34,6 @@ namespace Tx {
             ulong           epoch;
             std::string     author;
             std::size_t     hash;
-            std::size_t     nonce;
             std::string     signature;
             json            json_string;
 
@@ -78,14 +75,12 @@ namespace Tx {
                 this->input_tx = input_tx;
                 this->input_hash = std::hash<std::string>()(std::to_string(this->input_block) + std::to_string(this->input_tx));
                 this->output_user_key = reciever;
-                this->nonce = 0;                    
                 this->signature = "";
                 this->output_hash = std::hash<std::string>()(this->output_user_key);
                 this->hash = get_hash();
 
                 this->json_string["time"] = this->epoch;
                 this->json_string["author"] = this->author;
-                this->json_string["nonce"] = this->nonce;
                 this->json_string["signature"] = this->signature;
                 this->json_string["hash"] = this->hash;
                 this->json_string["input"]["block"] = this->input_block;
@@ -111,7 +106,6 @@ namespace Tx {
                 this->input_tx = this->json_string["input"]["tx"];
                 this->input_hash = this->json_string["input"]["hash"];
                 this->output_user_key = this->json_string["output"]["reciever"];
-                this->nonce = this->json_string["nonce"];
                 this->signature = this->json_string["signature"];
                 this->output_hash = this->json_string["output"]["hash"];
                 this->hash = this->json_string["hash"];
@@ -136,7 +130,6 @@ namespace Tx {
                 return std::hash<std::string>()(
                     std::to_string(this->epoch) +
                     this->author +
-                    std::to_string(this->nonce) +
                     this->signature +
                     std::to_string(this->input_hash) +
                     std::to_string(this->output_hash)
