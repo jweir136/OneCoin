@@ -91,14 +91,6 @@ namespace Tx {
             }
 
             /**
-             * @brief This method returns the time that the Transaction was created.
-             * @return  Returns the time the Transaction was created as a <i>size_t</i> type.
-             */
-            std::size_t get_time() {
-                return this->epoch;
-            }
-
-            /**
              * @brief The Transaction constructor creates a new Transaction using the serialized JSON data from another Transaction object.
              * The given JSON string should be valid and from another Transaction object.
              * .
@@ -117,6 +109,70 @@ namespace Tx {
                 this->signature = this->json_string["signature"];
                 this->output_hash = this->json_string["output"]["hash"];
                 this->hash = this->json_string["hash"];
+            }
+
+            /**
+             * @brief This method returns the time that the Transaction was created.
+             * @return  Returns the time the Transaction was created as a <i>size_t</i> type.
+             */
+            std::size_t get_time() {
+                return this->epoch;
+            }
+
+            /**
+             * @brief This method returns the Transaction's signing public key as a string. The string is in PEM format.
+             * @return Returns a string holding the public key in PEM format.
+             */
+            std::string get_author() {
+                return this->author;
+            }
+
+            /**
+             * @brief This method returns the Transaction's signature as a hex string.
+             * @return Returns a hex string containing the Transaction's signature.
+             */
+            std::string get_signature() {
+                return this->signature;
+            }
+
+            /**
+             * @brief This method returns the hash of the block of the Transaction's input.
+             * @return Returns the hash of the input block.
+             */
+            std::size_t get_input_block() {
+                return this->input_block;
+            }
+
+            /**
+             * @brief This method returns the hash of the Transaction used in the Transaction's input.
+             * @return Returns the hash of the inputed Transaction.
+             */
+            std::size_t get_input_tx() {
+                return this->input_tx;
+            }
+
+            /**
+             * @brief Returns the hash of the Transaction's input.
+             * @return Returns the hash of the input as a <i>size_t</i> form.
+             */
+            std::size_t get_input_hash() {
+                return this->input_hash;
+            }
+
+            /**
+             * @brief Returns the public key of the user recieving the currency units as a string. The key is in PEM format.
+             * @return Returns public key in PEM format.
+             */
+            std::string get_reciever() {
+                return this->output_user_key;
+            }
+
+            /**
+             * @brief Returns the hash of the Transaction's output. The output is mostly just the reciever's public key.
+             * @return Returns the hash of the output in <i>size_t</i> form.
+             */
+            std::size_t get_output_hash() {
+                return this->output_hash;
             }
 
             /**
