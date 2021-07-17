@@ -29,7 +29,7 @@ namespace Tx {
      *  Transactions have five additional data members:
      *      - <b>epoch</b> is the time that the Transaction was created in <i>unsigned long</i> form.
      *      - <b>author</b> is the public key of the user that created and Transaction. This is in PEM format.
-     *      - <b>hash<b/> is the hash of the Transactions. The hash uses the all the data members.
+     *      - <b>hash</b> is the hash of the Transactions. The hash uses the all the data members.
      *      - <b>signature</b> is used to verify that a Transaction was created by the owner of the currency units being spent.
      *          The signature is the ECDSA signature of the hash when signed by the Transaction's author.
      */
