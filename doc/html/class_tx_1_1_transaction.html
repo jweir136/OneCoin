@@ -86,12 +86,42 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a87af60c9041d859736acb129144e563b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a87af60c9041d859736acb129144e563b">Transaction</a> (std::string json_data)</td></tr>
 <tr class="memdesc:a87af60c9041d859736acb129144e563b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> constructor creates a new <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> using the serialized JSON data from another <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. The given JSON string should be valid and from another <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. <a href="class_tx_1_1_transaction.html#a87af60c9041d859736acb129144e563b">More...</a><br /></td></tr>
 <tr class="separator:a87af60c9041d859736acb129144e563b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01e5a5df3a276637cfda91aaaa667dde"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a01e5a5df3a276637cfda91aaaa667dde">get_time</a> ()</td></tr>
+<tr class="memdesc:a01e5a5df3a276637cfda91aaaa667dde"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the time that the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> was created.  <a href="class_tx_1_1_transaction.html#a01e5a5df3a276637cfda91aaaa667dde">More...</a><br /></td></tr>
+<tr class="separator:a01e5a5df3a276637cfda91aaaa667dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a621aae4800cf6fdd069b5443e364a2fa"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a621aae4800cf6fdd069b5443e364a2fa">get_author</a> ()</td></tr>
+<tr class="memdesc:a621aae4800cf6fdd069b5443e364a2fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s signing public key as a string. The string is in PEM format.  <a href="class_tx_1_1_transaction.html#a621aae4800cf6fdd069b5443e364a2fa">More...</a><br /></td></tr>
+<tr class="separator:a621aae4800cf6fdd069b5443e364a2fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d12ed0a706ddd9f10ecfd99a00a79cc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a8d12ed0a706ddd9f10ecfd99a00a79cc">get_signature</a> ()</td></tr>
+<tr class="memdesc:a8d12ed0a706ddd9f10ecfd99a00a79cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s signature as a hex string.  <a href="class_tx_1_1_transaction.html#a8d12ed0a706ddd9f10ecfd99a00a79cc">More...</a><br /></td></tr>
+<tr class="separator:a8d12ed0a706ddd9f10ecfd99a00a79cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37b27c8a3b0f42ade35f1978a46a4798"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a37b27c8a3b0f42ade35f1978a46a4798">get_input_block</a> ()</td></tr>
+<tr class="memdesc:a37b27c8a3b0f42ade35f1978a46a4798"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the hash of the block of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s input.  <a href="class_tx_1_1_transaction.html#a37b27c8a3b0f42ade35f1978a46a4798">More...</a><br /></td></tr>
+<tr class="separator:a37b27c8a3b0f42ade35f1978a46a4798"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5263a1451045ed29185cf7cc1686096"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#aa5263a1451045ed29185cf7cc1686096">get_input_tx</a> ()</td></tr>
+<tr class="memdesc:aa5263a1451045ed29185cf7cc1686096"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> used in the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s input.  <a href="class_tx_1_1_transaction.html#aa5263a1451045ed29185cf7cc1686096">More...</a><br /></td></tr>
+<tr class="separator:aa5263a1451045ed29185cf7cc1686096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee8b4ffeeb2578ce7287e12632975efb"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#aee8b4ffeeb2578ce7287e12632975efb">get_input_hash</a> ()</td></tr>
+<tr class="memdesc:aee8b4ffeeb2578ce7287e12632975efb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s input.  <a href="class_tx_1_1_transaction.html#aee8b4ffeeb2578ce7287e12632975efb">More...</a><br /></td></tr>
+<tr class="separator:aee8b4ffeeb2578ce7287e12632975efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c709e353b2dd3fb7bdbaa6ea8a9de9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a08c709e353b2dd3fb7bdbaa6ea8a9de9">get_reciever</a> ()</td></tr>
+<tr class="memdesc:a08c709e353b2dd3fb7bdbaa6ea8a9de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the public key of the user recieving the currency units as a string. The key is in PEM format.  <a href="class_tx_1_1_transaction.html#a08c709e353b2dd3fb7bdbaa6ea8a9de9">More...</a><br /></td></tr>
+<tr class="separator:a08c709e353b2dd3fb7bdbaa6ea8a9de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8076a8eda998f2b5396308a30b9708a"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#af8076a8eda998f2b5396308a30b9708a">get_output_hash</a> ()</td></tr>
+<tr class="memdesc:af8076a8eda998f2b5396308a30b9708a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s output. The output is mostly just the reciever's public key.  <a href="class_tx_1_1_transaction.html#af8076a8eda998f2b5396308a30b9708a">More...</a><br /></td></tr>
+<tr class="separator:af8076a8eda998f2b5396308a30b9708a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e0c647ca612ac5e531d1d55daff7bfb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a3e0c647ca612ac5e531d1d55daff7bfb">to_json</a> ()</td></tr>
 <tr class="memdesc:a3e0c647ca612ac5e531d1d55daff7bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_tx_1_1_transaction.html#a3e0c647ca612ac5e531d1d55daff7bfb" title="The to_json() method serializes the Transaction object and returns it as a JSON string.">to_json()</a> method serializes the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object and returns it as a JSON string.  <a href="class_tx_1_1_transaction.html#a3e0c647ca612ac5e531d1d55daff7bfb">More...</a><br /></td></tr>
 <tr class="separator:a3e0c647ca612ac5e531d1d55daff7bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aaa39fa57e151accd6c162be5799cac"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a9aaa39fa57e151accd6c162be5799cac">get_hash</a> ()</td></tr>
 <tr class="memdesc:a9aaa39fa57e151accd6c162be5799cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is used to return the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. The hash is calculated using all the Transactions's data members, except its own hash. Therefore, all the data members must be set before this method can be called. If this method is called before all the data members can be initialized and assigned the correct values, then an error may not be thrown.  <a href="class_tx_1_1_transaction.html#a9aaa39fa57e151accd6c162be5799cac">More...</a><br /></td></tr>
 <tr class="separator:a9aaa39fa57e151accd6c162be5799cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9106c539a70bbec82e34292aa6cb1bc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a9106c539a70bbec82e34292aa6cb1bc7">sign</a> (std::string priv_key_filepath=&quot;~/onecoin/keys/priv.pem&quot;)</td></tr>
+<tr class="memdesc:a9106c539a70bbec82e34292aa6cb1bc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is used to sign and seal a <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>. Signing a <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> should only be done once all the correct data has been added to it. This method must be provided with a filepath to a private key PEM file. The private key should never be given as just a plain string for security reasons. Upon successfull completition, the <em>signature</em> field is set. <a href="class_tx_1_1_transaction.html#a9106c539a70bbec82e34292aa6cb1bc7">More...</a><br /></td></tr>
+<tr class="separator:a9106c539a70bbec82e34292aa6cb1bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa084a9708f2d4f12a1e690c3cc812a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#aaa084a9708f2d4f12a1e690c3cc812a4">verify</a> ()</td></tr>
+<tr class="memdesc:aaa084a9708f2d4f12a1e690c3cc812a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is used to verify the validity of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s ECDSA system. Using the provided public key, the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>, and the signature, the method returns whether or not the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> is considered valid. In order for this method to work correctly, the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> must already be signed. <a href="class_tx_1_1_transaction.html#aaa084a9708f2d4f12a1e690c3cc812a4">More...</a><br /></td></tr>
+<tr class="separator:aaa084a9708f2d4f12a1e690c3cc812a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object is used to represent the transfer of digital currency. The role of this object is to keep track of where currency is being transferred to. </p>
@@ -99,9 +129,8 @@ Public Member Functions</h2></td></tr>
 <p>Transactions have five additional data members:</p><ul>
 <li><b>epoch</b> is the time that the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> was created in <em>unsigned long</em> form.</li>
 <li><b>author</b> is the public key of the user that created and <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>. This is in PEM format.</li>
-<li><b>hash is the hash of the Transactions. The hash uses the all the data members, except the nonce.</b></li>
-<li><b><b>nonce is used to calculate and verify the <em>Proof of Work</em>. A nonce is considered valid if and only if the hash of the nonce + the hash ends in at last four zeros. The nonce is calculated using a stochastic method.</b></b></li>
-<li><b><b><b>signature</b> is used to verify that a <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> was created by the owner of the currency units being spent. The signature is the ECDSA signature of the hash when signed by the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s author. </b></b></li>
+<li><b>hash is the hash of the Transactions. The hash uses the all the data members.</b></li>
+<li><b><b>signature</b> is used to verify that a <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> was created by the owner of the currency units being spent. The signature is the ECDSA signature of the hash when signed by the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s author. </b></li>
 </ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9e280769293c50989cb9f9ff66579fbf"></a>
@@ -198,6 +227,34 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a621aae4800cf6fdd069b5443e364a2fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a621aae4800cf6fdd069b5443e364a2fa">&#9670;&nbsp;</a></span>get_author()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Tx::Transaction::get_author </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method returns the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s signing public key as a string. The string is in PEM format. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a string holding the public key in PEM format. </dd></dl>
+
+</div>
+</div>
 <a id="a9aaa39fa57e151accd6c162be5799cac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9aaa39fa57e151accd6c162be5799cac">&#9670;&nbsp;</a></span>get_hash()</h2>
 
@@ -226,6 +283,236 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a37b27c8a3b0f42ade35f1978a46a4798"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37b27c8a3b0f42ade35f1978a46a4798">&#9670;&nbsp;</a></span>get_input_block()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Tx::Transaction::get_input_block </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method returns the hash of the block of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s input. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the hash of the input block. </dd></dl>
+
+</div>
+</div>
+<a id="aee8b4ffeeb2578ce7287e12632975efb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee8b4ffeeb2578ce7287e12632975efb">&#9670;&nbsp;</a></span>get_input_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Tx::Transaction::get_input_hash </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s input. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the hash of the input as a <em>size_t</em> form. </dd></dl>
+
+</div>
+</div>
+<a id="aa5263a1451045ed29185cf7cc1686096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5263a1451045ed29185cf7cc1686096">&#9670;&nbsp;</a></span>get_input_tx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Tx::Transaction::get_input_tx </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method returns the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> used in the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s input. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the hash of the inputed <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>. </dd></dl>
+
+</div>
+</div>
+<a id="af8076a8eda998f2b5396308a30b9708a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8076a8eda998f2b5396308a30b9708a">&#9670;&nbsp;</a></span>get_output_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Tx::Transaction::get_output_hash </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s output. The output is mostly just the reciever's public key. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the hash of the output in <em>size_t</em> form. </dd></dl>
+
+</div>
+</div>
+<a id="a08c709e353b2dd3fb7bdbaa6ea8a9de9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08c709e353b2dd3fb7bdbaa6ea8a9de9">&#9670;&nbsp;</a></span>get_reciever()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Tx::Transaction::get_reciever </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the public key of the user recieving the currency units as a string. The key is in PEM format. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns public key in PEM format. </dd></dl>
+
+</div>
+</div>
+<a id="a8d12ed0a706ddd9f10ecfd99a00a79cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d12ed0a706ddd9f10ecfd99a00a79cc">&#9670;&nbsp;</a></span>get_signature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Tx::Transaction::get_signature </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method returns the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s signature as a hex string. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a hex string containing the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s signature. </dd></dl>
+
+</div>
+</div>
+<a id="a01e5a5df3a276637cfda91aaaa667dde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01e5a5df3a276637cfda91aaaa667dde">&#9670;&nbsp;</a></span>get_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Tx::Transaction::get_time </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method returns the time that the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> was created. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the time the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> was created as a <em>size_t</em> type. </dd></dl>
+
+</div>
+</div>
+<a id="a9106c539a70bbec82e34292aa6cb1bc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9106c539a70bbec82e34292aa6cb1bc7">&#9670;&nbsp;</a></span>sign()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tx::Transaction::sign </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>priv_key_filepath</em> = <code>&quot;~/onecoin/keys/priv.pem&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is used to sign and seal a <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>. Signing a <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> should only be done once all the correct data has been added to it. This method must be provided with a filepath to a private key PEM file. The private key should never be given as just a plain string for security reasons. Upon successfull completition, the <em>signature</em> field is set.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">priv_key_filepath</td><td>This is the filepath to the PEM file containing the private key. By default, the method looks for the "~/onecoin/keys/priv.pem" file, but you are free to provide your own. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a3e0c647ca612ac5e531d1d55daff7bfb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3e0c647ca612ac5e531d1d55daff7bfb">&#9670;&nbsp;</a></span>to_json()</h2>
 
@@ -251,6 +538,34 @@ Public Member Functions</h2></td></tr>
 
 <p>The <a class="el" href="class_tx_1_1_transaction.html#a3e0c647ca612ac5e531d1d55daff7bfb" title="The to_json() method serializes the Transaction object and returns it as a JSON string.">to_json()</a> method serializes the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object and returns it as a JSON string. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns a JSON string to be used to serialize and deserialize <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> objects. </dd></dl>
+
+</div>
+</div>
+<a id="aaa084a9708f2d4f12a1e690c3cc812a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa084a9708f2d4f12a1e690c3cc812a4">&#9670;&nbsp;</a></span>verify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Tx::Transaction::verify </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is used to verify the validity of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s ECDSA system. Using the provided public key, the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>, and the signature, the method returns whether or not the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> is considered valid. In order for this method to work correctly, the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> must already be signed.</p>
+<dl class="section return"><dt>Returns</dt><dd>This method returns a boolean value to tell whether or not the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s signature is valid. </dd></dl>
 
 </div>
 </div>
