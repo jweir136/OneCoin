@@ -4,6 +4,7 @@
 #include <string>
 #include <ctime>
 #include <functional>
+#include <iostream>
 #include <openssl/bio.h>
 #include <openssl/err.h>
 #include <openssl/ec.h>
@@ -284,6 +285,21 @@ namespace Tx {
                 EVP_PKEY_free(key);
 
                 return ret;
+            }
+
+            /**
+             * @brief This method is an overloaded << operator. Upon being called with an output stream (ostream) object, the Transaction will write itself in a
+             * highly ledgible and easily understood format to the stream.
+             * @param out This is the output stream to write the Transaction to.
+             * @param trans This is the Transaction object to write from.
+             * @return This method returns a reference to another ostream object. It will most likely be the same object to be passed
+             * in the <i>out</i> argument.
+             */
+            friend std::ostream& operator<<(std::ostream &out, Transaction& trans) {
+                out << "Transaction: { [ " << std::to_string(trans.get_input_block()) << " " << std::to_string(trans.get_input_tx()) << " " << std::to_string(trans.get_input_hash()) << "] ";
+                out << std::to_string(trans.get_time()) << " " << std::hash<std::string>()(trans.get_author()) << " " << std::to_string(trans.get_hash()) << " " << trans.get_signature() << " [";
+                out << std::hash<std::string>()(trans.get_reciever()) << " " << std::to_string(trans.get_output_hash()) << " ] }" << std::endl;
+                return out;
             }
     };
 }

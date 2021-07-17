@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sign_9',['sign',['../class_tx_1_1_transaction.html#a9106c539a70bbec82e34292aa6cb1bc7',1,'Tx::Transaction']]]
+  ['operator_3c_3c_9',['operator&lt;&lt;',['../class_tx_1_1_transaction.html#aa47b1def649380d1887fa4fe020c2b95',1,'Tx::Transaction']]]
 ];
