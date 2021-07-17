@@ -5,6 +5,12 @@
 #include <ctime>
 #include <functional>
 #include <iostream>
+#include <cstdint>  
+#include <stdexcept>
+#include <sstream>
+#include <iomanip>
+#include <string>
+#include <cstdint>
 #include <openssl/bio.h>
 #include <openssl/err.h>
 #include <openssl/ec.h>
@@ -300,6 +306,49 @@ namespace Tx {
                 out << std::to_string(trans.get_time()) << " " << std::hash<std::string>()(trans.get_author()) << " " << std::to_string(trans.get_hash()) << " " << trans.get_signature() << " [";
                 out << std::hash<std::string>()(trans.get_reciever()) << " " << std::to_string(trans.get_output_hash()) << " ] }" << std::endl;
                 return out;
+            }
+
+        private:
+            /**
+             * @brief convert a single, whether it be ascii or unicode to a string of hex characters.
+             * @param in This is the input string to convert to hex characters.
+             * @return Returns a regular string, but only containing hex characters.
+             */
+            std::string string_to_hex(const std::string& in) {
+                std::stringstream ss;
+
+                ss << std::hex << std::setfill('0');
+                for (size_t i = 0; in.length() > i; ++i) {
+                    ss << std::setw(2) << static_cast<unsigned int>(static_cast<unsigned char>(in[i]));
+                }
+
+                return ss.str(); 
+            }
+
+            /**
+             * @brief Takes a string containing only hex characters and returns a the decoded string.
+             * @param in The input hex string to decode.
+             * @return Returns the regular string of decoded hex characters.
+             */
+            std::string hex_to_string(const std::string& in) {
+                std::string output;
+
+                if ((in.length() % 2) != 0) {
+                    throw std::runtime_error("String is not valid length ...");
+                }
+
+                size_t cnt = in.length() / 2;
+
+                for (size_t i = 0; cnt > i; ++i) {
+                    uint32_t s = 0;
+                    std::stringstream ss;
+                    ss << std::hex << in.substr(i * 2, 2);
+                    ss >> s;
+
+                    output.push_back(static_cast<unsigned char>(s));
+                }
+
+                return output;
             }
     };
 }
