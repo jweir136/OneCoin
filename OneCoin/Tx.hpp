@@ -255,7 +255,7 @@ namespace Tx {
                 EVP_PKEY_CTX_free(key_ctx);
                 EVP_PKEY_free(key);
 
-                this->signature = signature;
+                this->signature = string_to_hex(signature);
             }
 
             /**
@@ -268,7 +268,7 @@ namespace Tx {
             bool verify() {
                 std::string pem = this->author;
                 std::string expected = std::to_string(this->hash);
-                std::string signature = this->signature;
+                std::string signature = hex_to_string(this->signature);
 
                 EC_KEY* ec_key;
                 BIO* bo = BIO_new(BIO_s_mem());
