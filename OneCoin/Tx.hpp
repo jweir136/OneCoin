@@ -13,6 +13,7 @@
 #include <cstdint>
 
 #include <include/catch2/json.hpp>
+#include <OneCoin/Cryptography.hpp>
 
 using namespace nlohmann;
 
@@ -88,7 +89,7 @@ namespace Tx {
 
                 this->json_string["time"] = this->epoch;
                 this->json_string["author"] = this->author;
-                this->json_string["signature"] = this->signature;
+                this->json_string["signature"] = hex_to_string(this->signature);
                 this->json_string["hash"] = this->hash;
                 this->json_string["input"]["block"] = this->input_block;
                 this->json_string["input"]["tx"] = this->input_tx;
@@ -113,7 +114,7 @@ namespace Tx {
                 this->input_tx = this->json_string["input"]["tx"];
                 this->input_hash = this->json_string["input"]["hash"];
                 this->output_user_key = this->json_string["output"]["reciever"];
-                this->signature = this->json_string["signature"];
+                this->signature = hex_to_string(this->json_string["signature"]);
                 this->output_hash = this->json_string["output"]["hash"];
                 this->hash = this->json_string["hash"];
             }
@@ -207,6 +208,14 @@ namespace Tx {
                 );
             }
 
+            void sign_transaction(std::string priv_key_filepath) {
+                this->signature = string_to_hex(ECDSA::sign(priv_key_filepath, std::to_string(this->hash)));
+                this->json_string["signature"] = this->signature;
+            }
+
+            bool verify_transaction() {
+                return ECDSA::verify_from_string(this->author, std::to_string(this->hash), this->signature);
+            }
            
             /**
              * @brief This method is an overloaded << operator. Upon being called with an output stream (ostream) object, the Transaction will write itself in a

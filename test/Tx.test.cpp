@@ -39,3 +39,11 @@ TEST_CASE("tx-serialization", "[]") {
     }
 };
 
+TEST_CASE("tx-signing", "[]") {
+    std::string priv_key_filepath = "priv.pem";
+    std::string pub_key = "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE9eb/9w6tF9aVpWz5kOiRq7ec2Sme\nB+9Ovqw79tvFpo/BVHuLsl9ovFG3eyFFW3U8ph4YFGlYvaJ6is0iAfUg1Q==\n-----END PUBLIC KEY-----";
+
+    Tx::Transaction trans = Tx::Transaction(pub_key, 0, 0, pub_key);
+    trans.sign_transaction(priv_key_filepath);
+    REQUIRE(trans.verify_transaction());
+};
