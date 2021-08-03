@@ -11,10 +11,6 @@
 #include <iomanip>
 #include <string>
 #include <cstdint>
-#include <openssl/bio.h>
-#include <openssl/err.h>
-#include <openssl/ec.h>
-#include <openssl/pem.h>
 
 #include <include/catch2/json.hpp>
 
