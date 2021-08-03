@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sign_10',['sign',['../class_tx_1_1_transaction.html#a9106c539a70bbec82e34292aa6cb1bc7',1,'Tx::Transaction']]]
+  ['sign_5ftransaction_10',['sign_transaction',['../class_tx_1_1_transaction.html#a98febe553d514792fad8edce673dc236',1,'Tx::Transaction']]]
 ];

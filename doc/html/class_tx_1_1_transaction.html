@@ -117,12 +117,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9aaa39fa57e151accd6c162be5799cac"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a9aaa39fa57e151accd6c162be5799cac">get_hash</a> ()</td></tr>
 <tr class="memdesc:a9aaa39fa57e151accd6c162be5799cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is used to return the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. The hash is calculated using all the Transactions's data members, except its own hash. Therefore, all the data members must be set before this method can be called. If this method is called before all the data members can be initialized and assigned the correct values, then an error may not be thrown.  <a href="class_tx_1_1_transaction.html#a9aaa39fa57e151accd6c162be5799cac">More...</a><br /></td></tr>
 <tr class="separator:a9aaa39fa57e151accd6c162be5799cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9106c539a70bbec82e34292aa6cb1bc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a9106c539a70bbec82e34292aa6cb1bc7">sign</a> (std::string priv_key_filepath=&quot;~/onecoin/keys/priv.pem&quot;)</td></tr>
-<tr class="memdesc:a9106c539a70bbec82e34292aa6cb1bc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is used to sign and seal a <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>. Signing a <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> should only be done once all the correct data has been added to it. This method must be provided with a filepath to a private key PEM file. The private key should never be given as just a plain string for security reasons. Upon successfull completition, the <em>signature</em> field is set. <a href="class_tx_1_1_transaction.html#a9106c539a70bbec82e34292aa6cb1bc7">More...</a><br /></td></tr>
-<tr class="separator:a9106c539a70bbec82e34292aa6cb1bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa084a9708f2d4f12a1e690c3cc812a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#aaa084a9708f2d4f12a1e690c3cc812a4">verify</a> ()</td></tr>
-<tr class="memdesc:aaa084a9708f2d4f12a1e690c3cc812a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is used to verify the validity of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s ECDSA system. Using the provided public key, the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>, and the signature, the method returns whether or not the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> is considered valid. In order for this method to work correctly, the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> must already be signed. <a href="class_tx_1_1_transaction.html#aaa084a9708f2d4f12a1e690c3cc812a4">More...</a><br /></td></tr>
-<tr class="separator:aaa084a9708f2d4f12a1e690c3cc812a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98febe553d514792fad8edce673dc236"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#a98febe553d514792fad8edce673dc236">sign_transaction</a> (std::string priv_key_filepath)</td></tr>
+<tr class="memdesc:a98febe553d514792fad8edce673dc236"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method uses ECDSA signing in order to 'seal' the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. This method takes the path to a private key (in PEM format), the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s hash, and signs the hash.  <a href="class_tx_1_1_transaction.html#a98febe553d514792fad8edce673dc236">More...</a><br /></td></tr>
+<tr class="separator:a98febe553d514792fad8edce673dc236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af17827a67cd4d8dfcb2f5cbae7232e0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tx_1_1_transaction.html#af17827a67cd4d8dfcb2f5cbae7232e0f">verify_transaction</a> ()</td></tr>
+<tr class="memdesc:af17827a67cd4d8dfcb2f5cbae7232e0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method uses ECDSA to verify the signature of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> matches the author's public key, the hash, and the signature. In order for this method to work, the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> must already be signed.  <a href="class_tx_1_1_transaction.html#af17827a67cd4d8dfcb2f5cbae7232e0f">More...</a><br /></td></tr>
+<tr class="separator:af17827a67cd4d8dfcb2f5cbae7232e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -486,8 +486,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a9106c539a70bbec82e34292aa6cb1bc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9106c539a70bbec82e34292aa6cb1bc7">&#9670;&nbsp;</a></span>sign()</h2>
+<a id="a98febe553d514792fad8edce673dc236"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98febe553d514792fad8edce673dc236">&#9670;&nbsp;</a></span>sign_transaction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -496,10 +496,10 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Tx::Transaction::sign </td>
+          <td class="memname">void Tx::Transaction::sign_transaction </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>priv_key_filepath</em> = <code>&quot;~/onecoin/keys/priv.pem&quot;</code></td><td>)</td>
+          <td class="paramname"><em>priv_key_filepath</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -510,10 +510,10 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This method is used to sign and seal a <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>. Signing a <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> should only be done once all the correct data has been added to it. This method must be provided with a filepath to a private key PEM file. The private key should never be given as just a plain string for security reasons. Upon successfull completition, the <em>signature</em> field is set.</p>
+<p>This method uses ECDSA signing in order to 'seal' the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> object. This method takes the path to a private key (in PEM format), the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s hash, and signs the hash. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">priv_key_filepath</td><td>This is the filepath to the PEM file containing the private key. By default, the method looks for the "~/onecoin/keys/priv.pem" file, but you are free to provide your own. </td></tr>
+    <tr><td class="paramname">priv_key_filepath</td><td>This argument specifies where to find the PEM file containing the author's private key. </td></tr>
   </table>
   </dd>
 </dl>
@@ -548,8 +548,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="aaa084a9708f2d4f12a1e690c3cc812a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa084a9708f2d4f12a1e690c3cc812a4">&#9670;&nbsp;</a></span>verify()</h2>
+<a id="af17827a67cd4d8dfcb2f5cbae7232e0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af17827a67cd4d8dfcb2f5cbae7232e0f">&#9670;&nbsp;</a></span>verify_transaction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -558,7 +558,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Tx::Transaction::verify </td>
+          <td class="memname">bool Tx::Transaction::verify_transaction </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -571,8 +571,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This method is used to verify the validity of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s ECDSA system. Using the provided public key, the hash of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>, and the signature, the method returns whether or not the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> is considered valid. In order for this method to work correctly, the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> must already be signed.</p>
-<dl class="section return"><dt>Returns</dt><dd>This method returns a boolean value to tell whether or not the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s signature is valid. </dd></dl>
+<p>This method uses ECDSA to verify the signature of the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> matches the author's public key, the hash, and the signature. In order for this method to work, the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a> must already be signed. </p>
+<dl class="section return"><dt>Returns</dt><dd>This method returns a boolean value that specifies whether or not the <a class="el" href="class_tx_1_1_transaction.html" title="A Transaction object is used to represent the transfer of digital currency. The role of this object i...">Transaction</a>'s signature is valid or not. </dd></dl>
 
 </div>
 </div>

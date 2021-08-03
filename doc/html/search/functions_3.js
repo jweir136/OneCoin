@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['verify_27',['verify',['../class_tx_1_1_transaction.html#aaa084a9708f2d4f12a1e690c3cc812a4',1,'Tx::Transaction']]]
+  ['verify_5ftransaction_27',['verify_transaction',['../class_tx_1_1_transaction.html#af17827a67cd4d8dfcb2f5cbae7232e0f',1,'Tx::Transaction']]]
 ];

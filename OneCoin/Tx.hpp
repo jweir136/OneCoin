@@ -208,11 +208,25 @@ namespace Tx {
                 );
             }
 
+            /**
+             * @brief This method uses ECDSA signing in order to 'seal' the Transaction object.
+             * This method takes the path to a private key (in PEM format), the Transaction's hash, and
+             * signs the hash.
+             * @param priv_key_filepath This argument specifies where to find the PEM file containing
+             * the author's private key.
+             */
             void sign_transaction(std::string priv_key_filepath) {
                 this->signature = string_to_hex(ECDSA::sign(priv_key_filepath, std::to_string(this->hash)));
                 this->json_string["signature"] = this->signature;
             }
 
+            /**
+             * @brief This method uses ECDSA to verify the signature of the Transaction matches the
+             * author's public key, the hash, and the signature. In order for this method to work,
+             * the Transaction must already be signed.
+             * @return This method returns a boolean value that specifies whether or not the Transaction's
+             * signature is valid or not.
+             */
             bool verify_transaction() {
                 return ECDSA::verify_from_string(this->author, std::to_string(this->hash), this->signature);
             }
