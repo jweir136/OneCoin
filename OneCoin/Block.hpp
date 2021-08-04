@@ -94,7 +94,21 @@ class Block {
             this->json_data["size"] = this->size;
             this->json_data["blocks"] = this->blocks;
             this->json_data["hash"] = this->hash;
-        }      
+        }  
+
+        /**
+         * @brief Returns a given Transaction stored in the Block instance. The given Transaction is looked up by the given hash.
+         * If the Transaction does not exist in the Block object, then <i>NULL</i> is returned.
+         * @param hash This is the hash of the Transaction object to look up.
+         * @return Returns a serialized Transaction object in JSON format. If the Transaction does not exist in the Block, then
+         * <i>NULL</i> is returned.
+         */
+        std::string get(std::size_t hash) {
+            for (int i = 0; i < this->size; i++)
+                if (this->blocks[i]["hash"] == hash)
+                    return this->blocks[i].dump();
+            return NULL;
+        }    
 };
 
 #endif

@@ -95,6 +95,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab0d87c256138b8cfe41d5a9615db7a20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#ab0d87c256138b8cfe41d5a9615db7a20">append</a> (std::string transaction_json)</td></tr>
 <tr class="memdesc:ab0d87c256138b8cfe41d5a9615db7a20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a Transaction object to the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>. Upon being added to the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance, a new hash is computed using the old hash and the hash of the Transaction, and the size is incremented.  <a href="class_block.html#ab0d87c256138b8cfe41d5a9615db7a20">More...</a><br /></td></tr>
 <tr class="separator:ab0d87c256138b8cfe41d5a9615db7a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af523ba38eadeb7401f901d857732aed2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#af523ba38eadeb7401f901d857732aed2">get</a> (std::size_t hash)</td></tr>
+<tr class="memdesc:af523ba38eadeb7401f901d857732aed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a given Transaction stored in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance. The given Transaction is looked up by the given hash. If the Transaction does not exist in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object, then <em>NULL</em> is returned.  <a href="class_block.html#af523ba38eadeb7401f901d857732aed2">More...</a><br /></td></tr>
+<tr class="separator:af523ba38eadeb7401f901d857732aed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object is the entire foundation of the most fundamental data structure in bitcoin, the Blockchain. A <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object is simply used to group and store Transaction objects and store them on the Blockchain. </p>
@@ -166,6 +169,41 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="af523ba38eadeb7401f901d857732aed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af523ba38eadeb7401f901d857732aed2">&#9670;&nbsp;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Block::get </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>hash</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a given Transaction stored in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance. The given Transaction is looked up by the given hash. If the Transaction does not exist in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object, then <em>NULL</em> is returned. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hash</td><td>This is the hash of the Transaction object to look up. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a serialized Transaction object in JSON format. If the Transaction does not exist in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>, then <em>NULL</em> is returned. </dd></dl>
 
 </div>
 </div>

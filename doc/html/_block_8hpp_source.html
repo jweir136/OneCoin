@@ -127,10 +127,17 @@ $(function() {
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            this-&gt;json_data[<span class="stringliteral">&quot;size&quot;</span>] = this-&gt;size;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            this-&gt;json_data[<span class="stringliteral">&quot;blocks&quot;</span>] = this-&gt;blocks;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            this-&gt;json_data[<span class="stringliteral">&quot;hash&quot;</span>] = this-&gt;hash;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }      </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }  </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="class_block.html#af523ba38eadeb7401f901d857732aed2">  106</a></span>&#160;        std::string <a class="code" href="class_block.html#af523ba38eadeb7401f901d857732aed2">get</a>(std::size_t hash) {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;size; i++)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">if</span> (this-&gt;blocks[i][<span class="stringliteral">&quot;hash&quot;</span>] == hash)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    <span class="keywordflow">return</span> this-&gt;blocks[i].dump();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }    </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_block_html"><div class="ttname"><a href="class_block.html">Block</a></div><div class="ttdoc">A Block object is the entire foundation of the most fundamental data structure in bitcoin,...</div><div class="ttdef"><b>Definition:</b> Block.hpp:20</div></div>
 <div class="ttc" id="aclass_block_html_a0ecc109287dab2615ed5870d2c0838ae"><div class="ttname"><a href="class_block.html#a0ecc109287dab2615ed5870d2c0838ae">Block::Block</a></div><div class="ttdeci">Block(std::string json_data)</div><div class="ttdoc">The constructor takes a serialized Block object and creates a new object. The serialized string is ex...</div><div class="ttdef"><b>Definition:</b> Block.hpp:47</div></div>
 <div class="ttc" id="aclass_block_html_a37658a946bf5067ad01d68d9ff086adc"><div class="ttname"><a href="class_block.html#a37658a946bf5067ad01d68d9ff086adc">Block::Block</a></div><div class="ttdeci">Block()</div><div class="ttdoc">The constructor is used to make an empty Block object. An empty Block has a hash of zero.</div><div class="ttdef"><b>Definition:</b> Block.hpp:32</div></div>
@@ -138,6 +145,7 @@ $(function() {
 <div class="ttc" id="aclass_block_html_aa3a8fe20f01f4adc2cb866fa1bc30bb2"><div class="ttname"><a href="class_block.html#aa3a8fe20f01f4adc2cb866fa1bc30bb2">Block::get_hash</a></div><div class="ttdeci">std::size_t get_hash()</div><div class="ttdoc">This method returns the object's hash. If no Transactions have been added to the Block,...</div><div class="ttdef"><b>Definition:</b> Block.hpp:59</div></div>
 <div class="ttc" id="aclass_block_html_ab0d87c256138b8cfe41d5a9615db7a20"><div class="ttname"><a href="class_block.html#ab0d87c256138b8cfe41d5a9615db7a20">Block::append</a></div><div class="ttdeci">void append(std::string transaction_json)</div><div class="ttdoc">Add a Transaction object to the Block. Upon being added to the Block instance, a new hash is computed...</div><div class="ttdef"><b>Definition:</b> Block.hpp:87</div></div>
 <div class="ttc" id="aclass_block_html_abf628ee6689965592bde9fbf118556d5"><div class="ttname"><a href="class_block.html#abf628ee6689965592bde9fbf118556d5">Block::to_json</a></div><div class="ttdeci">std::string to_json()</div><div class="ttdoc">Serialize the Block object and returns the serialized data as a JSON string. The serialized string ca...</div><div class="ttdef"><b>Definition:</b> Block.hpp:77</div></div>
+<div class="ttc" id="aclass_block_html_af523ba38eadeb7401f901d857732aed2"><div class="ttname"><a href="class_block.html#af523ba38eadeb7401f901d857732aed2">Block::get</a></div><div class="ttdeci">std::string get(std::size_t hash)</div><div class="ttdoc">Returns a given Transaction stored in the Block instance. The given Transaction is looked up by the g...</div><div class="ttdef"><b>Definition:</b> Block.hpp:106</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
