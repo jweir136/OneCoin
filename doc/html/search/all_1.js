@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3c_3c_9',['operator&lt;&lt;',['../class_tx_1_1_transaction.html#aa47b1def649380d1887fa4fe020c2b95',1,'Tx::Transaction']]]
+  ['block_1',['Block',['../class_block.html',1,'Block'],['../class_block.html#a37658a946bf5067ad01d68d9ff086adc',1,'Block::Block()'],['../class_block.html#a0ecc109287dab2615ed5870d2c0838ae',1,'Block::Block(std::string json_data)']]]
 ];

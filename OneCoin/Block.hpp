@@ -1,6 +1,8 @@
 #ifndef BLOCK_HPP
 #define BLOCK_HPP
 
+#include <string>
+#include <functional>
 #include <include/catch2/json.hpp>
 #include <OneCoin/Tx.hpp>
 
@@ -74,7 +76,25 @@ class Block {
          */
         std::string to_json() {
             return this->json_data.dump();
-        }        
+        }  
+
+        /**
+         * @brief Add a Transaction object to the Block. Upon being added to the Block instance, a new hash is computed using
+         * the old hash and the hash of the Transaction, and the size is incremented.
+         * @param transaction_json This argument is the Transaction object to be added to the Block. The Transaction is expected
+         * to be in a JSON serialized format. Call Transaction::to_json() to get a Transaction's JSON data.
+         */
+        void append(std::string transaction_json) {
+            this->size++;
+            this->blocks.push_back(json::parse(transaction_json));
+            this->hash = std::hash<std::string>()(
+                std::to_string(this->hash) + json::parse(transaction_json)["hash"].dump()
+            );
+
+            this->json_data["size"] = this->size;
+            this->json_data["blocks"] = this->blocks;
+            this->json_data["hash"] = this->hash;
+        }      
 };
 
 #endif
