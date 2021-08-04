@@ -50,6 +50,31 @@ class Block {
             this->size = this->json_data["size"];
         }
 
+        /**
+         * @brief This method returns the object's hash. If no Transactions have been added to the Block, then the result will be zero.
+         * @return Returns the hash of the object. The hash will be zero if there are no Transactions in the Block yet.
+         */
+        std::size_t get_hash() {
+            return this->hash;
+        }
+
+        /**
+         * @brief This method returns the number of Transactions in the Block.
+         * @return Returns the number of Transactions stored.
+         */
+        std::size_t get_size() {
+            return this->size;
+        }
+
+        /**
+         * @brief Serialize the Block object and returns the serialized data as a JSON string. The serialized string can then be easily
+         * stored and transferred for use everywhere. Block(std::string json_data) can be used to convert the data returned from this method
+         * to a Block object.
+         * @return Returns a JSON string for serialization purposes.
+         */
+        std::string to_json() {
+            return this->json_data.dump();
+        }        
 };
 
 #endif
