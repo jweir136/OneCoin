@@ -108,7 +108,17 @@ class Block {
                 if (this->blocks[i]["hash"] == hash)
                     return this->blocks[i].dump();
             return "";
-        }    
+        } 
+
+        bool all_transactions_have_valid_signatures() {
+            for (int i = 0; i < this->size; i++) {
+                Tx::Transaction trans = Tx::Transaction(this->blocks[i].dump());
+                if (trans.verify_transaction() == false)
+                    return false;
+            }
+
+            return true;
+        }   
 };
 
 #endif

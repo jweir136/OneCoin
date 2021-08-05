@@ -67,3 +67,51 @@ TEST_CASE("block-get", "[]") {
 
     REQUIRE(block.get(0) == "");
 };
+
+TEST_CASE("block-signing-verify-true", "[]") {
+    srand(time(NULL));
+
+    Block block = Block();
+
+    for (int k = 0; k < 10; k++) {
+        std::size_t in_block;
+        std::size_t in_tx;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                in_block = rand() % 100000;
+                in_tx = rand() % 100000;
+
+                Tx::Transaction trans = Tx::Transaction(pub_keys[i], in_block, in_tx, pub_keys[j]);
+                
+                block.append(trans.to_json());
+            }
+        }
+    }
+
+    REQUIRE(block.all_transactions_have_valid_signatures());
+};
+
+TEST_CASE("block-signing-verify-false", "[]") {
+    srand(time(NULL));
+
+    Block block = Block();
+
+    for (int k = 0; k < 10; k++) {
+        std::size_t in_block;
+        std::size_t in_tx;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                in_block = rand() % 100000;
+                in_tx = rand() % 100000;
+
+                Tx::Transaction trans = Tx::Transaction(pub_keys[i], in_block, in_tx, pub_keys[0]);
+                
+                block.append(trans.to_json());
+            }
+        }
+    }
+
+    REQUIRE(block.all_transactions_have_valid_signatures());
+};

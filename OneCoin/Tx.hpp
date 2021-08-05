@@ -114,7 +114,7 @@ namespace Tx {
                 this->input_tx = this->json_string["input"]["tx"];
                 this->input_hash = this->json_string["input"]["hash"];
                 this->output_user_key = this->json_string["output"]["reciever"];
-                this->signature = hex_to_string(this->json_string["signature"]);
+                this->signature = this->json_string["signature"];
                 this->output_hash = this->json_string["output"]["hash"];
                 this->hash = this->json_string["hash"];
             }
@@ -228,7 +228,7 @@ namespace Tx {
              * signature is valid or not.
              */
             bool verify_transaction() {
-                return ECDSA::verify_from_string(this->author, std::to_string(this->hash), this->signature);
+                return ECDSA::verify_from_string(this->author, std::to_string(this->hash), hex_to_string(this->signature));
             }
            
             /**
