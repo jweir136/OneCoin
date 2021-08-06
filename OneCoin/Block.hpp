@@ -1,6 +1,7 @@
 #ifndef BLOCK_HPP
 #define BLOCK_HPP
 
+#include <iostream>
 #include <string>
 #include <functional>
 #include <include/catch2/json.hpp>
@@ -145,6 +146,20 @@ class Block {
 
             return true;
         }   
+
+        /**
+         * @brief Calculates and sets the Block's nonce value based on the Proof of Work (PoW) equation ```hash + last_block + nonce % 100 = 0```.
+         * @param verbose Sets the verbose level for the method. When verbose is true, logging will be outputted. When false, there
+         * will be no logging.
+         */
+        void calculate_nonce(bool verbose = false) {
+            while (std::hash<std::string>()(std::to_string(this->hash) + std::to_string(this->last_block) + std::to_string(this->nonce)) % 100 != 0) {
+                this->nonce += 1;
+                
+                if (verbose)
+                    std::cout << "Nonce: " << this->nonce << " PoW: " << (std::hash<std::string>()(std::to_string(this->hash) + std::to_string(this->last_block) + std::to_string(this->nonce))) << std::endl;
+            }
+        }
 };
 
 #endif

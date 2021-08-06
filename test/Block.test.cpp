@@ -115,3 +115,27 @@ TEST_CASE("block-signing-verify-false", "[]") {
 
     REQUIRE(block.all_transactions_have_valid_signatures());
 };
+
+TEST_CASE("block-nonce", "[]") {
+    srand(time(NULL));
+
+    Block block = Block(0);
+
+    for (int k = 0; k < 10; k++) {
+        std::size_t in_block;
+        std::size_t in_tx;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                in_block = rand() % 100000;
+                in_tx = rand() % 100000;
+
+                Tx::Transaction trans = Tx::Transaction(pub_keys[i], in_block, in_tx, pub_keys[0]);
+                
+                block.append(trans.to_json());
+            }
+        }
+    }
+
+    block.calculate_nonce(true);
+};

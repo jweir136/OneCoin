@@ -107,6 +107,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a461d278bd994d70b80f59544a20b04a2"><td class="memItemLeft" align="right" valign="top"><a id="a461d278bd994d70b80f59544a20b04a2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>all_transactions_have_valid_signatures</b> ()</td></tr>
 <tr class="separator:a461d278bd994d70b80f59544a20b04a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2757701c36936c36c52f5d283a4cbb84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a2757701c36936c36c52f5d283a4cbb84">calculate_nonce</a> (bool verbose=false)</td></tr>
+<tr class="memdesc:a2757701c36936c36c52f5d283a4cbb84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates and sets the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>'s nonce value based on the Proof of Work (PoW) equation <code>hash + last_block + nonce % 100 = 0</code>.  <a href="class_block.html#a2757701c36936c36c52f5d283a4cbb84">More...</a><br /></td></tr>
+<tr class="separator:a2757701c36936c36c52f5d283a4cbb84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object is the entire foundation of the most fundamental data structure in bitcoin, the Blockchain. A <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object is simply used to group and store Transaction objects and store them on the Blockchain. </p>
@@ -175,6 +178,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>all_transactions_have
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">transaction_json</td><td>This argument is the Transaction object to be added to the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>. The Transaction is expected to be in a JSON serialized format. Call Transaction::to_json() to get a Transaction's JSON data. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2757701c36936c36c52f5d283a4cbb84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2757701c36936c36c52f5d283a4cbb84">&#9670;&nbsp;</a></span>calculate_nonce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Block::calculate_nonce </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>verbose</em> = <code>false</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates and sets the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>'s nonce value based on the Proof of Work (PoW) equation <code>hash + last_block + nonce % 100 = 0</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">verbose</td><td>Sets the verbose level for the method. When verbose is true, logging will be outputted. When false, there will be no logging. </td></tr>
   </table>
   </dd>
 </dl>
