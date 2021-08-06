@@ -142,7 +142,7 @@ $(function() {
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                this-&gt;input_tx = this-&gt;json_string[<span class="stringliteral">&quot;input&quot;</span>][<span class="stringliteral">&quot;tx&quot;</span>];</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                this-&gt;input_hash = this-&gt;json_string[<span class="stringliteral">&quot;input&quot;</span>][<span class="stringliteral">&quot;hash&quot;</span>];</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                this-&gt;output_user_key = this-&gt;json_string[<span class="stringliteral">&quot;output&quot;</span>][<span class="stringliteral">&quot;reciever&quot;</span>];</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                this-&gt;signature = hex_to_string(this-&gt;json_string[<span class="stringliteral">&quot;signature&quot;</span>]);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                this-&gt;signature = this-&gt;json_string[<span class="stringliteral">&quot;signature&quot;</span>];</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                this-&gt;output_hash = this-&gt;json_string[<span class="stringliteral">&quot;output&quot;</span>][<span class="stringliteral">&quot;hash&quot;</span>];</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                this-&gt;hash = this-&gt;json_string[<span class="stringliteral">&quot;hash&quot;</span>];</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            }</div>
@@ -199,7 +199,7 @@ $(function() {
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            }</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
 <div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="class_tx_1_1_transaction.html#af17827a67cd4d8dfcb2f5cbae7232e0f">  230</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="class_tx_1_1_transaction.html#af17827a67cd4d8dfcb2f5cbae7232e0f">verify_transaction</a>() {</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                <span class="keywordflow">return</span> ECDSA::verify_from_string(this-&gt;author, std::to_string(this-&gt;hash), this-&gt;signature);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                <span class="keywordflow">return</span> ECDSA::verify_from_string(this-&gt;author, std::to_string(this-&gt;hash), hex_to_string(this-&gt;signature));</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            }</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;           </div>
 <div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="class_tx_1_1_transaction.html#aa47b1def649380d1887fa4fe020c2b95">  242</a></span>&#160;            <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="class_tx_1_1_transaction.html#aa47b1def649380d1887fa4fe020c2b95">operator&lt;&lt;</a>(std::ostream &amp;out, <a class="code" href="class_tx_1_1_transaction.html">Transaction</a>&amp; trans) {</div>

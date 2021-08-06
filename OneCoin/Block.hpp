@@ -13,9 +13,10 @@ using namespace nlohmann;
  * the Blockchain. A Block object is simply used to group and store Transaction objects and store them
  * on the Blockchain.
  * 
- * All Blocks have three fields: the blocks, the hash, and the size. The blocks field is just a list
+ * All Blocks have four fields: the blocks, the hash, the size, and the nonce. The blocks field is just a list
  * of the serialized Transaction objects. The hash is the hash of all the Transaction's hashes appended
- * together. The size is just the number of Transactions in the Block.
+ * together. The size is just the number of Transactions in the Block. The nonce is the solution to the proof of work algorithm.
+ * The Proof of Work Algorithm (PoW) is a mechinism to ensure that the blocks in the Blockchain aren't changed once they are added.
  */
 class Block {
     private:
@@ -23,20 +24,26 @@ class Block {
         std::size_t     hash;
         std::size_t     size;
         json            json_data;
+        std::size_t     nonce;
+        std::size_t     last_block;
 
     public:
         /**
          * @brief The constructor is used to make an empty Block object. An empty Block has a hash of
          * zero.
          */
-        Block() {
+        Block(std::size_t last_block) {
             this->blocks = {};
             this->hash = 0;
             this->size = 0;
+            this->nonce = 0;
+            this->last_block = last_block;
 
+            this->json_data["nonce"] = this->nonce;
             this->json_data["blocks"] = this->blocks;
             this->json_data["size"] = this->size;
             this->json_data["hash"] = this->hash;
+            this->json_data["last_block"] = this->last_block;
         }
 
         /**
@@ -50,6 +57,8 @@ class Block {
             this->blocks = this->json_data["blocks"];
             this->hash = this->json_data["hash"];
             this->size = this->json_data["size"];
+            this->nonce = this->json_data["nonce"];
+            this->last_block = this->json_data["last_block"];
         }
 
         /**
@@ -66,6 +75,23 @@ class Block {
          */
         std::size_t get_size() {
             return this->size;
+        }
+
+        /**
+         * @brief Returns the value of the nonce. The nonce is the solution to the equation ```hash + nonce + last_hash % 100 = 0```.
+         * @return Returns the value of the nonce.
+         */
+        std::size_t get_nonce() {
+            return this->nonce;
+        }
+
+        /**
+         * @brief Return the hash of the last Block. The last_block is the hash of the previous Block in the Blockchain which this
+         * Block instance is stored. Note: every Block instance must have one and exactly one last_block.
+         * @return Returns the hash of the last Block.
+         */
+        std::size_t get_last_block() {
+            return this->last_block;
         }
 
         /**

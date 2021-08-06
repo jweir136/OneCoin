@@ -76,10 +76,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a37658a946bf5067ad01d68d9ff086adc"><td class="memItemLeft" align="right" valign="top"><a id="a37658a946bf5067ad01d68d9ff086adc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a37658a946bf5067ad01d68d9ff086adc">Block</a> ()</td></tr>
-<tr class="memdesc:a37658a946bf5067ad01d68d9ff086adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor is used to make an empty <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object. An empty <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> has a hash of zero. <br /></td></tr>
-<tr class="separator:a37658a946bf5067ad01d68d9ff086adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac49c481b0d137dc1e8356ef67347a755"><td class="memItemLeft" align="right" valign="top"><a id="ac49c481b0d137dc1e8356ef67347a755"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#ac49c481b0d137dc1e8356ef67347a755">Block</a> (std::size_t last_block)</td></tr>
+<tr class="memdesc:ac49c481b0d137dc1e8356ef67347a755"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor is used to make an empty <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object. An empty <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> has a hash of zero. <br /></td></tr>
+<tr class="separator:ac49c481b0d137dc1e8356ef67347a755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ecc109287dab2615ed5870d2c0838ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a0ecc109287dab2615ed5870d2c0838ae">Block</a> (std::string json_data)</td></tr>
 <tr class="memdesc:a0ecc109287dab2615ed5870d2c0838ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor takes a serialized <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object and creates a new object. The serialized string is expected to be in JSON format, and from another <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object.  <a href="class_block.html#a0ecc109287dab2615ed5870d2c0838ae">More...</a><br /></td></tr>
 <tr class="separator:a0ecc109287dab2615ed5870d2c0838ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -89,6 +89,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a661eaef61225610c1b29b68aa4aaf512"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a661eaef61225610c1b29b68aa4aaf512">get_size</a> ()</td></tr>
 <tr class="memdesc:a661eaef61225610c1b29b68aa4aaf512"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the number of Transactions in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>.  <a href="class_block.html#a661eaef61225610c1b29b68aa4aaf512">More...</a><br /></td></tr>
 <tr class="separator:a661eaef61225610c1b29b68aa4aaf512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c781bf9c468138371b1fadb9678ea2b"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a5c781bf9c468138371b1fadb9678ea2b">get_nonce</a> ()</td></tr>
+<tr class="memdesc:a5c781bf9c468138371b1fadb9678ea2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the nonce. The nonce is the solution to the equation <code>hash + nonce + last_hash % 100 = 0</code>.  <a href="class_block.html#a5c781bf9c468138371b1fadb9678ea2b">More...</a><br /></td></tr>
+<tr class="separator:a5c781bf9c468138371b1fadb9678ea2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a397b887f6d26cde22a0027a0f25ff9d5"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a397b887f6d26cde22a0027a0f25ff9d5">get_last_block</a> ()</td></tr>
+<tr class="memdesc:a397b887f6d26cde22a0027a0f25ff9d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the hash of the last <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>. The last_block is the hash of the previous <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> in the Blockchain which this <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance is stored. Note: every <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance must have one and exactly one last_block.  <a href="class_block.html#a397b887f6d26cde22a0027a0f25ff9d5">More...</a><br /></td></tr>
+<tr class="separator:a397b887f6d26cde22a0027a0f25ff9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf628ee6689965592bde9fbf118556d5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#abf628ee6689965592bde9fbf118556d5">to_json</a> ()</td></tr>
 <tr class="memdesc:abf628ee6689965592bde9fbf118556d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object and returns the serialized data as a JSON string. The serialized string can then be easily stored and transferred for use everywhere. <a class="el" href="class_block.html#a0ecc109287dab2615ed5870d2c0838ae" title="The constructor takes a serialized Block object and creates a new object. The serialized string is ex...">Block(std::string json_data)</a> can be used to convert the data returned from this method to a <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object.  <a href="class_block.html#abf628ee6689965592bde9fbf118556d5">More...</a><br /></td></tr>
 <tr class="separator:abf628ee6689965592bde9fbf118556d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -96,12 +102,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab0d87c256138b8cfe41d5a9615db7a20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a Transaction object to the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>. Upon being added to the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance, a new hash is computed using the old hash and the hash of the Transaction, and the size is incremented.  <a href="class_block.html#ab0d87c256138b8cfe41d5a9615db7a20">More...</a><br /></td></tr>
 <tr class="separator:ab0d87c256138b8cfe41d5a9615db7a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af523ba38eadeb7401f901d857732aed2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#af523ba38eadeb7401f901d857732aed2">get</a> (std::size_t hash)</td></tr>
-<tr class="memdesc:af523ba38eadeb7401f901d857732aed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a given Transaction stored in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance. The given Transaction is looked up by the given hash. If the Transaction does not exist in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object, then <em>NULL</em> is returned.  <a href="class_block.html#af523ba38eadeb7401f901d857732aed2">More...</a><br /></td></tr>
+<tr class="memdesc:af523ba38eadeb7401f901d857732aed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a given Transaction stored in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance. The given Transaction is looked up by the given hash. If the Transaction does not exist in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object, then an empty string is returned.  <a href="class_block.html#af523ba38eadeb7401f901d857732aed2">More...</a><br /></td></tr>
 <tr class="separator:af523ba38eadeb7401f901d857732aed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a461d278bd994d70b80f59544a20b04a2"><td class="memItemLeft" align="right" valign="top"><a id="a461d278bd994d70b80f59544a20b04a2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>all_transactions_have_valid_signatures</b> ()</td></tr>
+<tr class="separator:a461d278bd994d70b80f59544a20b04a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object is the entire foundation of the most fundamental data structure in bitcoin, the Blockchain. A <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object is simply used to group and store Transaction objects and store them on the Blockchain. </p>
-<p>All Blocks have three fields: the blocks, the hash, and the size. The blocks field is just a list of the serialized Transaction objects. The hash is the hash of all the Transaction's hashes appended together. The size is just the number of Transactions in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>. </p>
+<p>All Blocks have four fields: the blocks, the hash, the size, and the nonce. The blocks field is just a list of the serialized Transaction objects. The hash is the hash of all the Transaction's hashes appended together. The size is just the number of Transactions in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>. The nonce is the solution to the proof of work algorithm. The Proof of Work Algorithm (PoW) is a mechinism to ensure that the blocks in the Blockchain aren't changed once they are added. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0ecc109287dab2615ed5870d2c0838ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ecc109287dab2615ed5870d2c0838ae">&#9670;&nbsp;</a></span>Block()</h2>
@@ -196,14 +205,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a given Transaction stored in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance. The given Transaction is looked up by the given hash. If the Transaction does not exist in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object, then <em>NULL</em> is returned. </p>
+<p>Returns a given Transaction stored in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance. The given Transaction is looked up by the given hash. If the Transaction does not exist in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object, then an empty string is returned. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">hash</td><td>This is the hash of the Transaction object to look up. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns a serialized Transaction object in JSON format. If the Transaction does not exist in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>, then <em>NULL</em> is returned. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a serialized Transaction object in JSON format. If the Transaction does not exist in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>, then an empty string is returned. </dd></dl>
 
 </div>
 </div>
@@ -232,6 +241,62 @@ Public Member Functions</h2></td></tr>
 
 <p>This method returns the object's hash. If no Transactions have been added to the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>, then the result will be zero. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the hash of the object. The hash will be zero if there are no Transactions in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> yet. </dd></dl>
+
+</div>
+</div>
+<a id="a397b887f6d26cde22a0027a0f25ff9d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a397b887f6d26cde22a0027a0f25ff9d5">&#9670;&nbsp;</a></span>get_last_block()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Block::get_last_block </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the hash of the last <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>. The last_block is the hash of the previous <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> in the Blockchain which this <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance is stored. Note: every <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance must have one and exactly one last_block. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the hash of the last <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a5c781bf9c468138371b1fadb9678ea2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c781bf9c468138371b1fadb9678ea2b">&#9670;&nbsp;</a></span>get_nonce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Block::get_nonce </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the value of the nonce. The nonce is the solution to the equation <code>hash + nonce + last_hash % 100 = 0</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the value of the nonce. </dd></dl>
 
 </div>
 </div>

@@ -18,7 +18,7 @@ const std::string priv_keys[3] = {
 TEST_CASE("block-serialization", "[]") {
     srand(time(NULL));
 
-    Block block = Block();
+    Block block = Block(0);
 
     for (int k = 0; k < 10; k++) {
         std::size_t in_block;
@@ -46,7 +46,7 @@ TEST_CASE("block-serialization", "[]") {
 TEST_CASE("block-get", "[]") {
     srand(time(NULL));
 
-    Block block = Block();
+    Block block = Block(0);
 
     for (int k = 0; k < 10; k++) {
         std::size_t in_block;
@@ -71,7 +71,7 @@ TEST_CASE("block-get", "[]") {
 TEST_CASE("block-signing-verify-true", "[]") {
     srand(time(NULL));
 
-    Block block = Block();
+    Block block = Block(0);
 
     for (int k = 0; k < 10; k++) {
         std::size_t in_block;
@@ -95,7 +95,7 @@ TEST_CASE("block-signing-verify-true", "[]") {
 TEST_CASE("block-signing-verify-false", "[]") {
     srand(time(NULL));
 
-    Block block = Block();
+    Block block = Block(0);
 
     for (int k = 0; k < 10; k++) {
         std::size_t in_block;
