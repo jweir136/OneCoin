@@ -137,6 +137,12 @@ class Block {
             return "";
         } 
 
+        /**
+         * @brief Determines if all the Transaction objects currently stored in the Block object have a valid signature.
+         * Whether or not they have a valid signature is determined by the Transaction.verify_transaction() method.
+         * @return Returns whether or not every Transaction stored in the Block has a valid signature. Returns true
+         * if and only if all signatures are valid.
+         */
         bool all_transactions_have_valid_signatures() {
             for (int i = 0; i < this->size; i++) {
                 Tx::Transaction trans = Tx::Transaction(this->blocks[i].dump());

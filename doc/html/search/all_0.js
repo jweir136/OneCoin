@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['append_0',['append',['../class_block.html#ab0d87c256138b8cfe41d5a9615db7a20',1,'Block']]]
+  ['all_5ftransactions_5fhave_5fvalid_5fsignatures_0',['all_transactions_have_valid_signatures',['../class_block.html#a461d278bd994d70b80f59544a20b04a2',1,'Block']]],
+  ['append_1',['append',['../class_block.html#ab0d87c256138b8cfe41d5a9615db7a20',1,'Block']]]
 ];

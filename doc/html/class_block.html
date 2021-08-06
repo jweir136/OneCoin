@@ -104,8 +104,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af523ba38eadeb7401f901d857732aed2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#af523ba38eadeb7401f901d857732aed2">get</a> (std::size_t hash)</td></tr>
 <tr class="memdesc:af523ba38eadeb7401f901d857732aed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a given Transaction stored in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance. The given Transaction is looked up by the given hash. If the Transaction does not exist in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object, then an empty string is returned.  <a href="class_block.html#af523ba38eadeb7401f901d857732aed2">More...</a><br /></td></tr>
 <tr class="separator:af523ba38eadeb7401f901d857732aed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a461d278bd994d70b80f59544a20b04a2"><td class="memItemLeft" align="right" valign="top"><a id="a461d278bd994d70b80f59544a20b04a2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>all_transactions_have_valid_signatures</b> ()</td></tr>
+<tr class="memitem:a461d278bd994d70b80f59544a20b04a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a461d278bd994d70b80f59544a20b04a2">all_transactions_have_valid_signatures</a> ()</td></tr>
+<tr class="memdesc:a461d278bd994d70b80f59544a20b04a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if all the Transaction objects currently stored in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object have a valid signature. Whether or not they have a valid signature is determined by the Transaction.verify_transaction() method.  <a href="class_block.html#a461d278bd994d70b80f59544a20b04a2">More...</a><br /></td></tr>
 <tr class="separator:a461d278bd994d70b80f59544a20b04a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2757701c36936c36c52f5d283a4cbb84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a2757701c36936c36c52f5d283a4cbb84">calculate_nonce</a> (bool verbose=false)</td></tr>
 <tr class="memdesc:a2757701c36936c36c52f5d283a4cbb84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates and sets the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>'s nonce value based on the Proof of Work (PoW) equation <code>hash + last_block + nonce % 100 = 0</code>.  <a href="class_block.html#a2757701c36936c36c52f5d283a4cbb84">More...</a><br /></td></tr>
@@ -150,6 +150,34 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>all_transactions_have
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a461d278bd994d70b80f59544a20b04a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a461d278bd994d70b80f59544a20b04a2">&#9670;&nbsp;</a></span>all_transactions_have_valid_signatures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Block::all_transactions_have_valid_signatures </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determines if all the Transaction objects currently stored in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object have a valid signature. Whether or not they have a valid signature is determined by the Transaction.verify_transaction() method. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns whether or not every Transaction stored in the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> has a valid signature. Returns true if and only if all signatures are valid. </dd></dl>
+
+</div>
+</div>
 <a id="ab0d87c256138b8cfe41d5a9615db7a20"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab0d87c256138b8cfe41d5a9615db7a20">&#9670;&nbsp;</a></span>append()</h2>
 
