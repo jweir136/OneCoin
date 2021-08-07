@@ -95,6 +95,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adc3f2145a59d488682b9849ecddf8c81"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blockchain.html#adc3f2145a59d488682b9849ecddf8c81">get</a> (std::size_t hash)</td></tr>
 <tr class="memdesc:adc3f2145a59d488682b9849ecddf8c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object currently being stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance by its hash. If the hash does not belong to any <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a>, then an empty string "" is returned.  <a href="class_blockchain.html#adc3f2145a59d488682b9849ecddf8c81">More...</a><br /></td></tr>
 <tr class="separator:adc3f2145a59d488682b9849ecddf8c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e4bbebb35312b5b5770b718eac828ae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blockchain.html#a7e4bbebb35312b5b5770b718eac828ae">all_blocks_have_valid_signatures</a> ()</td></tr>
+<tr class="memdesc:a7e4bbebb35312b5b5770b718eac828ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether or not every <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance has a valid signature.  <a href="class_blockchain.html#a7e4bbebb35312b5b5770b718eac828ae">More...</a><br /></td></tr>
+<tr class="separator:a7e4bbebb35312b5b5770b718eac828ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96317b4e6717a182aefd699abd17150e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blockchain.html#a96317b4e6717a182aefd699abd17150e">all_blocks_have_valid_nonce</a> ()</td></tr>
+<tr class="memdesc:a96317b4e6717a182aefd699abd17150e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether or not every <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance has a valid nonce.  <a href="class_blockchain.html#a96317b4e6717a182aefd699abd17150e">More...</a><br /></td></tr>
+<tr class="separator:a96317b4e6717a182aefd699abd17150e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e0323c2e32f4d8506e2eb17e989d678"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blockchain.html#a8e0323c2e32f4d8506e2eb17e989d678">all_transactions_have_unique_input</a> ()</td></tr>
+<tr class="memdesc:a8e0323c2e32f4d8506e2eb17e989d678"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether or not every Transaction object in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> has a unique input block and transaction hash. It is important that each Transaction object has a unique input in order to avoid double spending tokens.  <a href="class_blockchain.html#a8e0323c2e32f4d8506e2eb17e989d678">More...</a><br /></td></tr>
+<tr class="separator:a8e0323c2e32f4d8506e2eb17e989d678"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> object is the main data structure in OneCoin. A <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> object is simply a linked list used to store all the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> data types. Each <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> is held together by a nonce. The nonce is just a way of ensuring that the Blocks won't be altered once they are added to the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a>. </p>
@@ -135,6 +144,90 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a96317b4e6717a182aefd699abd17150e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96317b4e6717a182aefd699abd17150e">&#9670;&nbsp;</a></span>all_blocks_have_valid_nonce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Blockchain::all_blocks_have_valid_nonce </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determines whether or not every <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance has a valid nonce. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if every single <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance has a correct nonce. Returns false if even one <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> has an invalid nonce. </dd></dl>
+
+</div>
+</div>
+<a id="a7e4bbebb35312b5b5770b718eac828ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e4bbebb35312b5b5770b718eac828ae">&#9670;&nbsp;</a></span>all_blocks_have_valid_signatures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Blockchain::all_blocks_have_valid_signatures </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determines whether or not every <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance has a valid signature. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if every single <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance is correctly signed. Returns false if even one <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> has an invalid signature. </dd></dl>
+
+</div>
+</div>
+<a id="a8e0323c2e32f4d8506e2eb17e989d678"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e0323c2e32f4d8506e2eb17e989d678">&#9670;&nbsp;</a></span>all_transactions_have_unique_input()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Blockchain::all_transactions_have_unique_input </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determines whether or not every Transaction object in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> has a unique input block and transaction hash. It is important that each Transaction object has a unique input in order to avoid double spending tokens. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns whether or not there are no duplicate inputs for any Transaction. </dd></dl>
+
+</div>
+</div>
 <a id="a728770caa5f2284e6077f9d2c3444148"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a728770caa5f2284e6077f9d2c3444148">&#9670;&nbsp;</a></span>append()</h2>
 

@@ -3,8 +3,10 @@
 
 #include <include/catch2/json.hpp>
 #include <string>
+#include <vector>
 #include <iostream>
 #include <OneCoin/Block.hpp>
+#include <OneCoin/Tx.hpp>
 
 using namespace nlohmann;
 
@@ -104,7 +106,6 @@ class Blockchain {
             return "";
         }
 
-    private:
         /**
          * @brief Determines whether or not every Block stored in the Blockchain instance has a valid signature.
          * @return Returns true if every single Block in the Blockchain instance is correctly signed. Returns false if
@@ -135,6 +136,32 @@ class Blockchain {
             }
 
             return true;         
+        }
+
+        /**
+         * @brief Determines whether or not every Transaction object in the Blockchain has a unique input block and transaction
+         * hash. It is important that each Transaction object has a unique input in order to avoid double spending tokens.
+         * @return Returns whether or not there are no duplicate inputs for any Transaction.
+         */
+        bool all_transactions_have_unique_input() {
+            std::vector<std::string> inputs_list = std::vector<std::string>();
+
+            for (int i = 0; i < this->size; i++) {
+                Block block = Block(this->blocks[i].dump());
+
+                for (int i = 0; i < block.get_size(); i++) {
+                    std::size_t input_block = json::parse(block.to_json())["blocks"][i]["input"]["block"];
+                    std::size_t input_tx = json::parse(block.to_json())["blocks"][i]["input"]["tx"];
+
+                    for (std::string input : inputs_list)
+                        if (input == std::to_string(input_block) + "_" + std::to_string(input_tx))
+                            return false;
+
+                    inputs_list.push_back(std::to_string(input_block) + "_" + std::to_string(input_tx));
+                }
+            }
+
+            return true;
         }
 };
 
