@@ -3,6 +3,7 @@
 
 #include <include/catch2/json.hpp>
 #include <string>
+#include <iostream>
 #include <OneCoin/Block.hpp>
 
 using namespace nlohmann;
@@ -71,13 +72,12 @@ class Blockchain {
                 block = GenesisBlock(block_json);
             else {
                 block = Block(block_json);
-                block.set_last_block(this->blocks[this->size--]);
+                block.set_last_block(this->blocks[this->size - 1]["hash"]);
             }
             block.calculate_nonce(verbose);
 
             this->size++;
-            this->blocks.push_back(block.to_json());
-            
+            this->blocks.push_back(json::parse(block.to_json()));
             this->json_data["size"] = this->size;
             this->json_data["blocks"] = this->blocks;
         }

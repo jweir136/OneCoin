@@ -236,6 +236,13 @@ class GenesisBlock : public Block {
         }
 
         /**
+         * 
+         */
+        GenesisBlock(std::string block_json) : Block(block_json) {
+            ;
+        }
+
+        /**
          * @brief Returns whether of not an instance of a Block is a GenesisBlock or a Block.
          * @return Returns a boolean value to represent whether or not the Block is a GenesisBlock.
          */

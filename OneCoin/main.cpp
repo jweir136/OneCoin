@@ -1,9 +1,10 @@
-#include <iostream>
-#include <OneCoin/Tx.hpp>
 #include <stdlib.h>
+#include <iostream>
 #include <ctime>
 #include <string>
-using namespace std;
+#include <OneCoin/Tx.hpp>
+#include <OneCoin/Block.hpp>
+#include <OneCoin/Blockchain.hpp>
 
 int main() {
     
