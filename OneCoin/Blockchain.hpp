@@ -3,6 +3,7 @@
 
 #include <include/catch2/json.hpp>
 #include <string>
+#include <OneCoin/Block.hpp>
 
 using namespace nlohmann;
 
@@ -51,6 +52,34 @@ class Blockchain {
          */
         std::string to_json() {
             return this->json_data.dump();
+        }
+
+        /**
+         * @brief Add a new Block object to the new of the Blockchain. Upon being passed,
+         * the method determines if the new Block should be a regular Block or a GenesisBlock.
+         * If the Block is a regular Block, then the new last_block is added to the Block. The last step before
+         * being added to the Blockchain is for the nonce to be computed.
+         * @param block_json This is the Block object to add to the Blockchain. It is expected to be in the form of
+         * a serialized JSON data. You can obtain the JSON data of another Block object by using Block.to_json() method.
+         * @param verbose This is a paramter used to specify if the verbose mode for the Block.calculate_nonce() method should be
+         * used.
+         */
+        void append(std::string block_json, bool verbose = false) {
+            Block block;
+
+            if (this->size == 0)
+                block = GenesisBlock(block_json);
+            else {
+                block = Block(block_json);
+                block.set_last_block(this->blocks[this->size--]);
+            }
+            block.calculate_nonce(verbose);
+
+            this->size++;
+            this->blocks.push_back(block.to_json());
+            
+            this->json_data["size"] = this->size;
+            this->json_data["blocks"] = this->blocks;
         }
 };
 
