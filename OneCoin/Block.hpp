@@ -84,7 +84,7 @@ class Block {
          * @brief Change the value of last_block to the given argument.
          * @param last_block The value of the hash to set last_block to.
          */
-        void set_last_block(std::hash last_block) {
+        void set_last_block(std::size_t last_block) {
             this->last_block = last_block;
         }
 
@@ -199,6 +199,23 @@ class Block {
                 if (verbose)
                     std::cout << "Nonce: " << this->nonce << " PoW: " << (std::hash<std::string>()(std::to_string(this->hash) + std::to_string(this->last_block) + std::to_string(this->nonce))) << std::endl;
             }
+        }
+
+        /**
+         * @brief This is an overloaded method of the << (output stream) operator. It is most commonly used to print details about the Block instance
+         * for debugging or logging purposes. Please note that the output of this method is not a JSON serialized string, and can't be used as such.
+         * Additonally note that no newline character will be automatically added.
+         * @param out This is a reference to an object of type ```ostream```.
+         * @param block This is a reference to an object of type Block or one of its subclasses. This is the object to output to the stream.
+         * @return Returns a reference to the same ```ostream``` object that was passed in the <i>out</i> argument. The returned ```ostream``` object will contain
+         * the object from the passed Block instance written to it.
+         */
+        friend std::ostream& operator<<(std::ostream &out, Block& block) {
+            if (!block.is_genesis_block())
+                out << "Block { size: " << std::to_string(block.get_size()) << ", hash: " << std::to_string(block.get_hash()) << ", last_block: " << std::to_string(block.get_last_block()) << ", nonce: " << std::to_string(block.get_nonce()) << " }";
+            else
+                out << "GenesisBlock { size: " << std::to_string(block.get_size()) << ", hash: " << std::to_string(block.get_hash()) << ", nonce: " << std::to_string(block.get_nonce()) << " }";
+            return out;
         }
 };
 
