@@ -106,6 +106,14 @@ class Block {
         }  
 
         /**
+         * @brief Returns whether of not an instance of a Block is a GenesisBlock or a Block.
+         * @return Returns a boolean value to represent whether or not the Block is a GenesisBlock.
+         */
+        bool is_genesis_block() {
+            return false;
+        }
+
+        /**
          * @brief Add a Transaction object to the Block. Upon being added to the Block instance, a new hash is computed using
          * the old hash and the hash of the Transaction, and the size is incremented.
          * @param transaction_json This argument is the Transaction object to be added to the Block. The Transaction is expected
@@ -182,6 +190,15 @@ class GenesisBlock : public Block {
          */
         GenesisBlock() : Block(0) {
             ;
+        }
+
+
+        /**
+         * @brief Returns whether of not an instance of a Block is a GenesisBlock or a Block.
+         * @return Returns a boolean value to represent whether or not the Block is a GenesisBlock.
+         */
+        bool is_genesis_block() {
+            return true;
         }
 };
 
