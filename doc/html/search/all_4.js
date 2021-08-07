@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3c_3c_18',['operator&lt;&lt;',['../class_tx_1_1_transaction.html#aa47b1def649380d1887fa4fe020c2b95',1,'Tx::Transaction']]]
+  ['is_5fgenesis_5fblock_18',['is_genesis_block',['../class_block.html#ad8a0eb49d66e1c7bbaa4cef51175bd09',1,'Block::is_genesis_block()'],['../class_genesis_block.html#a77005123273737e2b038c32bb8d14d16',1,'GenesisBlock::is_genesis_block()']]]
 ];

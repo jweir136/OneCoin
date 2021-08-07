@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sign_5ftransaction_44',['sign_transaction',['../class_tx_1_1_transaction.html#a98febe553d514792fad8edce673dc236',1,'Tx::Transaction']]]
+  ['is_5fgenesis_5fblock_46',['is_genesis_block',['../class_block.html#ad8a0eb49d66e1c7bbaa4cef51175bd09',1,'Block::is_genesis_block()'],['../class_genesis_block.html#a77005123273737e2b038c32bb8d14d16',1,'GenesisBlock::is_genesis_block()']]]
 ];

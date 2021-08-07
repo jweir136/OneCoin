@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['to_5fjson_20',['to_json',['../class_block.html#abf628ee6689965592bde9fbf118556d5',1,'Block::to_json()'],['../class_tx_1_1_transaction.html#a3e0c647ca612ac5e531d1d55daff7bfb',1,'Tx::Transaction::to_json()']]],
-  ['transaction_21',['Transaction',['../class_tx_1_1_transaction.html#a9e280769293c50989cb9f9ff66579fbf',1,'Tx::Transaction::Transaction(std::string public_key, std::size_t input_block, std::size_t input_tx, std::string reciever)'],['../class_tx_1_1_transaction.html#a87af60c9041d859736acb129144e563b',1,'Tx::Transaction::Transaction(std::string json_data)'],['../class_tx_1_1_transaction.html',1,'Tx::Transaction']]]
+  ['set_5flast_5fblock_20',['set_last_block',['../class_block.html#a12a7e015cddf911ec8d0c0666995c9ce',1,'Block']]],
+  ['sign_5ftransaction_21',['sign_transaction',['../class_tx_1_1_transaction.html#a98febe553d514792fad8edce673dc236',1,'Tx::Transaction']]]
 ];

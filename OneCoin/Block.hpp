@@ -33,6 +33,24 @@ class Block {
          * @brief The constructor is used to make an empty Block object. An empty Block has a hash of
          * zero.
          */
+        Block() {
+            this->blocks = {};
+            this->hash = 0;
+            this->size = 0;
+            this->nonce = 0;
+            this->last_block = 0;
+
+            this->json_data["nonce"] = this->nonce;
+            this->json_data["blocks"] = this->blocks;
+            this->json_data["size"] = this->size;
+            this->json_data["hash"] = this->hash;
+            this->json_data["last_block"] = this->last_block;
+        }
+
+        /**
+         * @brief The constructor is used to make an empty Block object. An empty Block has a hash of
+         * zero.
+         */
         Block(std::size_t last_block) {
             this->blocks = {};
             this->hash = 0;
@@ -60,6 +78,14 @@ class Block {
             this->size = this->json_data["size"];
             this->nonce = this->json_data["nonce"];
             this->last_block = this->json_data["last_block"];
+        }
+
+        /**
+         * @brief Change the value of last_block to the given argument.
+         * @param last_block The value of the hash to set last_block to.
+         */
+        void set_last_block(std::hash last_block) {
+            this->last_block = last_block;
         }
 
         /**
@@ -191,7 +217,6 @@ class GenesisBlock : public Block {
         GenesisBlock() : Block(0) {
             ;
         }
-
 
         /**
          * @brief Returns whether of not an instance of a Block is a GenesisBlock or a Block.
