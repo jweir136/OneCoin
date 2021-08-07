@@ -168,4 +168,21 @@ class Block {
         }
 };
 
+/**
+ * @brief A GenesisBlock is a subclass of the Block class. A GenesisBlock holds all the same data and methods as a Block type.
+ * The main difference between A GenesisBlock and a Block is that a GenesisBlock can only be first in a Blockchain. In fact,
+ * the first Block in every Blockchain <b>must</b> be a GenesisBlock. Everything in a GenesisBlock is the same as a normal Block
+ * except that the <i>last_block</i>, the hash of the last block in the Blockchain, is always zero.
+ */
+class GenesisBlock : public Block {
+    public:
+        /**
+         * @brief The only constructor for this class simply creates a new instance using Block(std::size_t last_block). However,
+         * it automatically sets the <i>last_block</i> to zero.
+         */
+        GenesisBlock() : Block(0) {
+            ;
+        }
+};
+
 #endif

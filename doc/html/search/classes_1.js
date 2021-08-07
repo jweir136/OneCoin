@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transaction_23',['Transaction',['../class_tx_1_1_transaction.html',1,'Tx']]]
+  ['genesisblock_24',['GenesisBlock',['../class_genesis_block.html',1,'']]]
 ];
