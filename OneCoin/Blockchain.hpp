@@ -89,6 +89,20 @@ class Blockchain {
             this->json_data["size"] = this->size;
             this->json_data["blocks"] = this->blocks;
         }
+
+        /**
+         * @brief Return a Block object currently being stored in the Blockchain instance by its hash. If the hash does not belong
+         * to any Block object in the Blockchain, then an empty string "" is returned.
+         * @param hash The hash of the Block object you wish to retrieve.
+         * @return Return the serialized JSON string of the chosen Block object.
+         */
+        std::string get(std::size_t hash) {
+            for (int i = 0; i < this->size; i++)
+                if (this->blocks[i]["hash"] == hash)
+                    return this->blocks[i].dump();
+
+            return "";
+        }
 };
 
 #endif

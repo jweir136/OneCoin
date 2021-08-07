@@ -92,6 +92,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a728770caa5f2284e6077f9d2c3444148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blockchain.html#a728770caa5f2284e6077f9d2c3444148">append</a> (std::string block_json, bool verbose=false)</td></tr>
 <tr class="memdesc:a728770caa5f2284e6077f9d2c3444148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object to the new of the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a>. Upon being passed, the method determines if the new <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> should be a regular <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> or a <a class="el" href="class_genesis_block.html" title="A GenesisBlock is a subclass of the Block class. A GenesisBlock holds all the same data and methods a...">GenesisBlock</a>. If the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> is a regular <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>, then the new last_block is added to the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>. The last step before being added to the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> is for the nonce to be computed.  <a href="class_blockchain.html#a728770caa5f2284e6077f9d2c3444148">More...</a><br /></td></tr>
 <tr class="separator:a728770caa5f2284e6077f9d2c3444148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc3f2145a59d488682b9849ecddf8c81"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blockchain.html#adc3f2145a59d488682b9849ecddf8c81">get</a> (std::size_t hash)</td></tr>
+<tr class="memdesc:adc3f2145a59d488682b9849ecddf8c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object currently being stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance by its hash. If the hash does not belong to any <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a>, then an empty string "" is returned.  <a href="class_blockchain.html#adc3f2145a59d488682b9849ecddf8c81">More...</a><br /></td></tr>
+<tr class="separator:adc3f2145a59d488682b9849ecddf8c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> object is the main data structure in OneCoin. A <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> object is simply a linked list used to store all the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> data types. Each <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> is held together by a nonce. The nonce is just a way of ensuring that the Blocks won't be altered once they are added to the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a>. </p>
@@ -174,6 +177,41 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="adc3f2145a59d488682b9849ecddf8c81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc3f2145a59d488682b9849ecddf8c81">&#9670;&nbsp;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Blockchain::get </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>hash</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return a <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object currently being stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance by its hash. If the hash does not belong to any <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a>, then an empty string "" is returned. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hash</td><td>The hash of the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object you wish to retrieve. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Return the serialized JSON string of the chosen <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object. </dd></dl>
 
 </div>
 </div>

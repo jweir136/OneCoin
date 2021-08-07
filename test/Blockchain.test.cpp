@@ -45,3 +45,33 @@ TEST_CASE("blockchain-serialization-test", "[]") {
 
     REQUIRE(blockchain.to_json() == chain2.to_json());
 };
+
+TEST_CASE("blockchain-get-test", "[]") {
+    srand(time(NULL));
+
+    Block block;
+    Blockchain blockchain;
+
+    for (int k = 0; k < 10; k++) {
+        std::size_t in_block;
+        std::size_t in_tx;
+        
+        block = Block();
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                in_block = rand() % 100000;
+                in_tx = rand() % 100000;
+
+                Tx::Transaction trans = Tx::Transaction(pub_keys[i], in_block, in_tx, pub_keys[j]);
+                
+                block.append(trans.to_json());
+            }
+        }
+        blockchain.append(block.to_json());
+
+        REQUIRE(blockchain.get(block.get_hash()) != "");
+    }
+
+    REQUIRE(blockchain.get(0) == "");
+};

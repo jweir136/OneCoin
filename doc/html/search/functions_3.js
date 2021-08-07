@@ -1,7 +1,7 @@
 var searchData=
 [
   ['genesisblock_35',['GenesisBlock',['../class_genesis_block.html#a7b130755f624fdab0958c9795339a01e',1,'GenesisBlock']]],
-  ['get_36',['get',['../class_block.html#af523ba38eadeb7401f901d857732aed2',1,'Block']]],
+  ['get_36',['get',['../class_block.html#af523ba38eadeb7401f901d857732aed2',1,'Block::get()'],['../class_blockchain.html#adc3f2145a59d488682b9849ecddf8c81',1,'Blockchain::get()']]],
   ['get_5fauthor_37',['get_author',['../class_tx_1_1_transaction.html#a621aae4800cf6fdd069b5443e364a2fa',1,'Tx::Transaction']]],
   ['get_5fhash_38',['get_hash',['../class_block.html#aa3a8fe20f01f4adc2cb866fa1bc30bb2',1,'Block::get_hash()'],['../class_tx_1_1_transaction.html#a9aaa39fa57e151accd6c162be5799cac',1,'Tx::Transaction::get_hash()']]],
   ['get_5finput_5fblock_39',['get_input_block',['../class_tx_1_1_transaction.html#a37b27c8a3b0f42ade35f1978a46a4798',1,'Tx::Transaction']]],
