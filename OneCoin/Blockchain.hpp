@@ -2,6 +2,7 @@
 #define BLOCKCHAIN_H
 
 #include <include/catch2/json.hpp>
+#include <string>
 
 using namespace nlohmann;
 
@@ -30,6 +31,26 @@ class Blockchain {
 
             this->json_data["size"] = this->size;
             this->json_data["blocks"] = this->blocks;
+        }
+
+        /**
+         * @brief This constructor creates a new Blockchain instance from the serialized JSON data of another Blockchain.
+         * Call the to_json() method to get a Blockchain object's JSON string.
+         * @param json_data This is the JSON data to use to create the new Blockchain object.
+         */
+        Blockchain(std::string json_data) {
+            this->json_data = json::parse(json_data);
+
+            this->size = this->json_data["size"];
+            this->blocks = this->json_data["blocks"];
+        }
+
+        /**
+         * @brief Return the serialized JSON string representing the current Blockchain object.
+         * @return Returns a string containing a Blockchain object's JSON data.
+         */
+        std::string to_json() {
+            return this->json_data.dump();
         }
 };
 
