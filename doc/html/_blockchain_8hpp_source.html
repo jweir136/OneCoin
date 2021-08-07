@@ -133,11 +133,24 @@ $(function() {
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        }</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;};</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">bool</span> all_blocks_have_valid_signatures() {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;size; i++) {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <a class="code" href="class_block.html">Block</a> block = <a class="code" href="class_block.html">Block</a>(this-&gt;blocks[i].dump());</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">if</span> (!block.<a class="code" href="class_block.html#a461d278bd994d70b80f59544a20b04a2">all_transactions_have_valid_signatures</a>())</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;};</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_block_html"><div class="ttname"><a href="class_block.html">Block</a></div><div class="ttdoc">A Block object is the entire foundation of the most fundamental data structure in bitcoin,...</div><div class="ttdef"><b>Definition:</b> Block.hpp:22</div></div>
 <div class="ttc" id="aclass_block_html_a2757701c36936c36c52f5d283a4cbb84"><div class="ttname"><a href="class_block.html#a2757701c36936c36c52f5d283a4cbb84">Block::calculate_nonce</a></div><div class="ttdeci">void calculate_nonce(bool verbose=false)</div><div class="ttdoc">Calculates and sets the Block's nonce value based on the Proof of Work (PoW) equation hash + last_blo...</div><div class="ttdef"><b>Definition:</b> Block.hpp:195</div></div>
+<div class="ttc" id="aclass_block_html_a461d278bd994d70b80f59544a20b04a2"><div class="ttname"><a href="class_block.html#a461d278bd994d70b80f59544a20b04a2">Block::all_transactions_have_valid_signatures</a></div><div class="ttdeci">bool all_transactions_have_valid_signatures()</div><div class="ttdoc">Determines if all the Transaction objects currently stored in the Block object have a valid signature...</div><div class="ttdef"><b>Definition:</b> Block.hpp:180</div></div>
 <div class="ttc" id="aclass_block_html_ab37603065fa6f1fad8c41a5aa2897194"><div class="ttname"><a href="class_block.html#ab37603065fa6f1fad8c41a5aa2897194">Block::set_last_block</a></div><div class="ttdeci">void set_last_block(std::size_t last_block)</div><div class="ttdoc">Change the value of last_block to the given argument.</div><div class="ttdef"><b>Definition:</b> Block.hpp:87</div></div>
 <div class="ttc" id="aclass_block_html_abf628ee6689965592bde9fbf118556d5"><div class="ttname"><a href="class_block.html#abf628ee6689965592bde9fbf118556d5">Block::to_json</a></div><div class="ttdeci">std::string to_json()</div><div class="ttdoc">Serialize the Block object and returns the serialized data as a JSON string. The serialized string ca...</div><div class="ttdef"><b>Definition:</b> Block.hpp:130</div></div>
 <div class="ttc" id="aclass_blockchain_html"><div class="ttname"><a href="class_blockchain.html">Blockchain</a></div><div class="ttdoc">A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...</div><div class="ttdef"><b>Definition:</b> Blockchain.hpp:20</div></div>

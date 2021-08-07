@@ -103,6 +103,23 @@ class Blockchain {
 
             return "";
         }
+
+    private:
+        /**
+         * @brief Determines whether or not every Block stored in the Blockchain instance has a valid signature.
+         * @return Returns true if every single Block in the Blockchain instance is correctly signed. Returns false if
+         * even one Block in the Blockchain has an invalid signature.
+         */
+        bool all_blocks_have_valid_signatures() {
+            for (int i = 0; i < this->size; i++) {
+                Block block = Block(this->blocks[i].dump());
+
+                if (!block.all_transactions_have_valid_signatures())
+                    return false;
+            }
+
+            return true;
+        }
 };
 
 #endif
