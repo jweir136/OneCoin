@@ -202,6 +202,15 @@ class Block {
         }
 
         /**
+         * @brief Determines whether or not the Block's nonce is valid. A nonce is valid if and only if the equation
+         * ```hash(hash + last_block + nonce) % 100 = 0```.
+         * @return Returns whether or not the Block's nonce is valid or not.
+         */
+        bool is_nonce_valid() {
+            return std::hash<std::string>()(std::to_string(this->hash) + std::to_string(this->last_block) + std::to_string(this->nonce)) % 100 == 0;
+        }
+
+        /**
          * @brief This is an overloaded method of the << (output stream) operator. It is most commonly used to print details about the Block instance
          * for debugging or logging purposes. Please note that the output of this method is not a JSON serialized string, and can't be used as such.
          * Additonally note that no newline character will be automatically added.

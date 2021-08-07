@@ -63,7 +63,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="class_block-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Block Class Reference</div>  </div>
@@ -130,12 +129,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2757701c36936c36c52f5d283a4cbb84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a2757701c36936c36c52f5d283a4cbb84">calculate_nonce</a> (bool verbose=false)</td></tr>
 <tr class="memdesc:a2757701c36936c36c52f5d283a4cbb84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates and sets the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>'s nonce value based on the Proof of Work (PoW) equation <code>hash + last_block + nonce % 100 = 0</code>.  <a href="class_block.html#a2757701c36936c36c52f5d283a4cbb84">More...</a><br /></td></tr>
 <tr class="separator:a2757701c36936c36c52f5d283a4cbb84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a822a522e43e47d065d5c56a2103e08a3"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a822a522e43e47d065d5c56a2103e08a3">operator&lt;&lt;</a> (std::ostream &amp;out, <a class="el" href="class_block.html">Block</a> &amp;block)</td></tr>
-<tr class="memdesc:a822a522e43e47d065d5c56a2103e08a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is an overloaded method of the &lt;&lt; (output stream) operator. It is most commonly used to print details about the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance for debugging or logging purposes. Please note that the output of this method is not a JSON serialized string, and can't be used as such. Additonally note that no newline character will be automatically added.  <a href="class_block.html#a822a522e43e47d065d5c56a2103e08a3">More...</a><br /></td></tr>
-<tr class="separator:a822a522e43e47d065d5c56a2103e08a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object is the entire foundation of the most fundamental data structure in bitcoin, the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a>. A <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object is simply used to group and store Transaction objects and store them on the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a>. </p>
@@ -506,53 +499,6 @@ Friends</h2></td></tr>
 
 <p>Serialize the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object and returns the serialized data as a JSON string. The serialized string can then be easily stored and transferred for use everywhere. <a class="el" href="class_block.html#a0ecc109287dab2615ed5870d2c0838ae" title="The constructor takes a serialized Block object and creates a new object. The serialized string is ex...">Block(std::string json_data)</a> can be used to convert the data returned from this method to a <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns a JSON string for serialization purposes. </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="a822a522e43e47d065d5c56a2103e08a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a822a522e43e47d065d5c56a2103e08a3">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_block.html">Block</a> &amp;&#160;</td>
-          <td class="paramname"><em>block</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This is an overloaded method of the &lt;&lt; (output stream) operator. It is most commonly used to print details about the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance for debugging or logging purposes. Please note that the output of this method is not a JSON serialized string, and can't be used as such. Additonally note that no newline character will be automatically added. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">out</td><td>This is a reference to an object of type <code>ostream</code>. </td></tr>
-    <tr><td class="paramname">block</td><td>This is a reference to an object of type <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> or one of its subclasses. This is the object to output to the stream. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns a reference to the same <code>ostream</code> object that was passed in the <em>out</em> argument. The returned <code>ostream</code> object will contain the object from the passed <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> instance written to it. </dd></dl>
 
 </div>
 </div>
