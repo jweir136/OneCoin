@@ -139,3 +139,27 @@ TEST_CASE("block-nonce", "[]") {
 
     block.calculate_nonce(true);
 };
+
+TEST_CASE("genesis-block", "[]") {
+srand(time(NULL));
+
+    Block block = GenesisBlock();
+
+    for (int k = 0; k < 10; k++) {
+        std::size_t in_block;
+        std::size_t in_tx;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                in_block = rand() % 100000;
+                in_tx = rand() % 100000;
+
+                Tx::Transaction trans = Tx::Transaction(pub_keys[i], in_block, in_tx, pub_keys[0]);
+                
+                block.append(trans.to_json());
+            }
+        }
+    }
+
+    block.calculate_nonce(true);
+};
