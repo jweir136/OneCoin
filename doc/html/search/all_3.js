@@ -12,6 +12,6 @@ var searchData=
   ['get_5foutput_5fhash_14',['get_output_hash',['../class_tx_1_1_transaction.html#af8076a8eda998f2b5396308a30b9708a',1,'Tx::Transaction']]],
   ['get_5freciever_15',['get_reciever',['../class_tx_1_1_transaction.html#a08c709e353b2dd3fb7bdbaa6ea8a9de9',1,'Tx::Transaction']]],
   ['get_5fsignature_16',['get_signature',['../class_tx_1_1_transaction.html#a8d12ed0a706ddd9f10ecfd99a00a79cc',1,'Tx::Transaction']]],
-  ['get_5fsize_17',['get_size',['../class_block.html#a661eaef61225610c1b29b68aa4aaf512',1,'Block']]],
+  ['get_5fsize_17',['get_size',['../class_block.html#a661eaef61225610c1b29b68aa4aaf512',1,'Block::get_size()'],['../class_blockchain.html#a9cddfd21cb9a6bbc39034eeafaa705cf',1,'Blockchain::get_size()']]],
   ['get_5ftime_18',['get_time',['../class_tx_1_1_transaction.html#a01e5a5df3a276637cfda91aaaa667dde',1,'Tx::Transaction']]]
 ];

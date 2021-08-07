@@ -48,6 +48,14 @@ class Blockchain {
         }
 
         /**
+         * @brief This is the accessor method for the size field.
+         * @return Returns the value of the size field.
+         */
+        std::size_t get_size() {
+            return this->size;
+        }
+
+        /**
          * @brief Return the serialized JSON string representing the current Blockchain object.
          * @return Returns a string containing a Blockchain object's JSON data.
          */
