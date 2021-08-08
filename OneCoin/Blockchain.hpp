@@ -105,6 +105,25 @@ class Blockchain {
 
             return "";
         }
+ 
+        /**
+         * @brief Return a Transaction object currently being stored in the Blockchain by specifying which Block and which Transaction
+         * to search in. If the has of the Block and the Transaction are both not valid, then an empty string is returned.
+         * @param block_hash This is the hash of the Block object to search for the Transaction in. It must be a valid hash belonging
+         * to a Block actually stored in the Blockchain.
+         * @param transaction_hash This is the hash of the Transaction object to return. It must be both a valid hash and be stored in
+         * the passed Block.
+         * @return Returns a serialized Transaction object, or an empty string if the Transaction cannot be found. The serialized data
+         * is in a JSON format.
+         */
+        std::string get(std::size_t block_hash, std::size_t transaction_hash) {
+            try {
+                Block block = Block(get(block_hash));
+                return block.get(transaction_hash);
+            } catch(...) {
+                return "";
+            }
+        }
 
         /**
          * @brief Determines whether or not every Block stored in the Blockchain instance has a valid signature.

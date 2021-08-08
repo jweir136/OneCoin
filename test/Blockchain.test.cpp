@@ -52,6 +52,9 @@ TEST_CASE("blockchain-get-test", "[]") {
     Block block;
     Blockchain blockchain;
 
+    std::size_t trans_hash;
+    std::size_t block_hash;
+
     for (int k = 0; k < 10; k++) {
         std::size_t in_block;
         std::size_t in_tx;
@@ -64,14 +67,19 @@ TEST_CASE("blockchain-get-test", "[]") {
                 in_tx = rand() % 100000;
 
                 Tx::Transaction trans = Tx::Transaction(pub_keys[i], in_block, in_tx, pub_keys[j]);
+                trans_hash = trans.get_hash();
                 
                 block.append(trans.to_json());
             }
         }
+        block_hash = block.get_hash();
+
         blockchain.append(block.to_json());
 
+        REQUIRE(blockchain.get(block_hash, trans_hash) != "");
         REQUIRE(blockchain.get(block.get_hash()) != "");
     }
 
     REQUIRE(blockchain.get(0) == "");
+    REQUIRE(blockchain.get(0, 0) == "");
 };

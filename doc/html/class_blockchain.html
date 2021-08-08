@@ -95,6 +95,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adc3f2145a59d488682b9849ecddf8c81"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blockchain.html#adc3f2145a59d488682b9849ecddf8c81">get</a> (std::size_t hash)</td></tr>
 <tr class="memdesc:adc3f2145a59d488682b9849ecddf8c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object currently being stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance by its hash. If the hash does not belong to any <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a>, then an empty string "" is returned.  <a href="class_blockchain.html#adc3f2145a59d488682b9849ecddf8c81">More...</a><br /></td></tr>
 <tr class="separator:adc3f2145a59d488682b9849ecddf8c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d931c9786844567bc5efe787c6e2dd9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blockchain.html#a1d931c9786844567bc5efe787c6e2dd9">get</a> (std::size_t block_hash, std::size_t transaction_hash)</td></tr>
+<tr class="memdesc:a1d931c9786844567bc5efe787c6e2dd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a Transaction object currently being stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> by specifying which <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> and which Transaction to search in. If the has of the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> and the Transaction are both not valid, then an empty string is returned.  <a href="class_blockchain.html#a1d931c9786844567bc5efe787c6e2dd9">More...</a><br /></td></tr>
+<tr class="separator:a1d931c9786844567bc5efe787c6e2dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e4bbebb35312b5b5770b718eac828ae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blockchain.html#a7e4bbebb35312b5b5770b718eac828ae">all_blocks_have_valid_signatures</a> ()</td></tr>
 <tr class="memdesc:a7e4bbebb35312b5b5770b718eac828ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether or not every <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance has a valid signature.  <a href="class_blockchain.html#a7e4bbebb35312b5b5770b718eac828ae">More...</a><br /></td></tr>
 <tr class="separator:a7e4bbebb35312b5b5770b718eac828ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -273,8 +276,54 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a1d931c9786844567bc5efe787c6e2dd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d931c9786844567bc5efe787c6e2dd9">&#9670;&nbsp;</a></span>get() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Blockchain::get </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>block_hash</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>transaction_hash</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return a Transaction object currently being stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> by specifying which <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> and which Transaction to search in. If the has of the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> and the Transaction are both not valid, then an empty string is returned. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">block_hash</td><td>This is the hash of the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> object to search for the Transaction in. It must be a valid hash belonging to a <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> actually stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a>. </td></tr>
+    <tr><td class="paramname">transaction_hash</td><td>This is the hash of the Transaction object to return. It must be both a valid hash and be stored in the passed <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a serialized Transaction object, or an empty string if the Transaction cannot be found. The serialized data is in a JSON format. </dd></dl>
+
+</div>
+</div>
 <a id="adc3f2145a59d488682b9849ecddf8c81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc3f2145a59d488682b9849ecddf8c81">&#9670;&nbsp;</a></span>get()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adc3f2145a59d488682b9849ecddf8c81">&#9670;&nbsp;</a></span>get() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
