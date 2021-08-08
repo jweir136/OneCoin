@@ -12,7 +12,7 @@ const std::string pub2 = "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj
 const std::string pub3 = "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEyQQr7BgHRtOB7SJTFbS7i06DX1lo\nQsKDuHIdOmL4z/frRzjdMUuowBH4FyNWDkH51HSxIhZKgxotYR35JAWPPw==\n-----END PUBLIC KEY-----";
 const std::string pub_keys[3] = { pub1, pub2, pub3 };
 const std::string priv_keys[3] = {
-    "/Users/jacobweir/projects/cpp/OneCoin/test/sample_private_keys/priv1.pem",
+    "test/sample_private_keys/priv1.pem",
     "test/sample_private_keys/priv2.pem", "test/sample_private_keys/priv3.pem"
 };
 
@@ -82,4 +82,43 @@ TEST_CASE("blockchain-get-test", "[]") {
 
     REQUIRE(blockchain.get(0) == "");
     REQUIRE(blockchain.get(0, 0) == "");
+};
+
+TEST_CASE("real-blockchain-test", "[]") {
+    const std::string admin_keys[2] = {
+        "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvo2EhDT60gPW+8BRq7iB0SkBn+UE\nSOcts5pJSiPb+7uL6jrVQYyyyyVvePXwbMvQBAkl7MuycLry0w9UTEwNDg==\n-----END PUBLIC KEY-----",
+        "/Users/jacobweir/projects/cpp/OneCoin/test/sample_private_keys/priv1.pem"
+    };
+    const std::string jacob_keys[2] = {
+        "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEHbAzzNc3BXWI619W5W53bmEUlPP6\niO14u4O0GeliUj+U2ZHJ9atbkanpNhtgjoIALYvbM9pBQn2kC/Yb3hTh7Q==\n-----END PUBLIC KEY-----",
+        "test/sample_private_keys/priv2.pem"
+    };
+    const std::string ryan_keys[2] = {
+        "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEyQQr7BgHRtOB7SJTFbS7i06DX1lo\nQsKDuHIdOmL4z/frRzjdMUuowBH4FyNWDkH51HSxIhZKgxotYR35JAWPPw==\n-----END PUBLIC KEY-----",
+        "test/sample_private_keys/priv3.pem"
+    };
+
+    Blockchain chain = Blockchain();
+
+    // Transaction #1 Admin to Jacob
+    Tx::Transaction admin_to_jacob = Tx::Transaction(admin_keys[0], NULL, NULL, jacob_keys[0]);
+    admin_to_jacob.sign_transaction(admin_keys[1]);
+
+    Block block1 = GenesisBlock();
+    block1.append(admin_to_jacob.to_json());
+    block1.calculate_nonce();
+
+    chain.append(block1.to_json());   
+
+    // Transaction #2 Jacob to Ryan
+    Tx::Transaction jacob_to_ryan = Tx::Transaction(jacob_keys[0], block1.get_hash(), admin_to_jacob.get_hash(), ryan_keys[0]);
+    jacob_to_ryan.sign_transaction(jacob_keys[1]);
+
+    Block block2 = Block();
+    block2.append(jacob_to_ryan.to_json());
+    block2.calculate_nonce();
+
+    chain.append(block2.to_json());
+
+    REQUIRE(chain.all_transactions_have_matching_inputs_and_outputs(admin_keys[0]));
 };

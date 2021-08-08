@@ -140,7 +140,7 @@ $(function() {
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">try</span> {</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <a class="code" href="class_block.html">Block</a> block = <a class="code" href="class_block.html">Block</a>(get(block_hash));</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordflow">return</span> block.<a class="code" href="class_block.html#af523ba38eadeb7401f901d857732aed2">get</a>(transaction_hash);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            } <span class="keywordflow">catch</span>(...) {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            } <span class="keywordflow">catch</span>(<span class="keyword">const</span> std::exception &amp;exc) {</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            }</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div>
@@ -187,9 +187,26 @@ $(function() {
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        }</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;};</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="class_blockchain.html#af4adbbe70861e85a5bcc1c6947b8a139">  193</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_blockchain.html#af4adbbe70861e85a5bcc1c6947b8a139">all_transactions_have_matching_inputs_and_outputs</a>(std::string admin_pub_key = <span class="stringliteral">&quot;&quot;</span>) {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="keywordflow">if</span> (this-&gt;size == 0)</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            <span class="keywordflow">for</span> (json block : this-&gt;blocks)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                <span class="keywordflow">for</span> (json tx : block[<span class="stringliteral">&quot;blocks&quot;</span>]) {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                    <span class="keywordflow">if</span> (tx[<span class="stringliteral">&quot;author&quot;</span>] != admin_pub_key &amp;&amp; admin_pub_key != <span class="stringliteral">&quot;&quot;</span>) {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                        std::string txin = get(tx[<span class="stringliteral">&quot;input&quot;</span>][<span class="stringliteral">&quot;block&quot;</span>], tx[<span class="stringliteral">&quot;input&quot;</span>][<span class="stringliteral">&quot;tx&quot;</span>]);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                        <span class="keywordflow">if</span> (txin == <span class="stringliteral">&quot;&quot;</span> || json::parse(txin)[<span class="stringliteral">&quot;output&quot;</span>][<span class="stringliteral">&quot;reciever&quot;</span>] != tx[<span class="stringliteral">&quot;author&quot;</span>])</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                    }</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                }</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        }</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;};</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_block_html"><div class="ttname"><a href="class_block.html">Block</a></div><div class="ttdoc">A Block object is the entire foundation of the most fundamental data structure in bitcoin,...</div><div class="ttdef"><b>Definition:</b> Block.hpp:22</div></div>
 <div class="ttc" id="aclass_block_html_a2757701c36936c36c52f5d283a4cbb84"><div class="ttname"><a href="class_block.html#a2757701c36936c36c52f5d283a4cbb84">Block::calculate_nonce</a></div><div class="ttdeci">void calculate_nonce(bool verbose=false)</div><div class="ttdoc">Calculates and sets the Block's nonce value based on the Proof of Work (PoW) equation hash + last_blo...</div><div class="ttdef"><b>Definition:</b> Block.hpp:195</div></div>
 <div class="ttc" id="aclass_block_html_a461d278bd994d70b80f59544a20b04a2"><div class="ttname"><a href="class_block.html#a461d278bd994d70b80f59544a20b04a2">Block::all_transactions_have_valid_signatures</a></div><div class="ttdeci">bool all_transactions_have_valid_signatures()</div><div class="ttdoc">Determines if all the Transaction objects currently stored in the Block object have a valid signature...</div><div class="ttdef"><b>Definition:</b> Block.hpp:180</div></div>
@@ -207,8 +224,9 @@ $(function() {
 <div class="ttc" id="aclass_blockchain_html_a96317b4e6717a182aefd699abd17150e"><div class="ttname"><a href="class_blockchain.html#a96317b4e6717a182aefd699abd17150e">Blockchain::all_blocks_have_valid_nonce</a></div><div class="ttdeci">bool all_blocks_have_valid_nonce()</div><div class="ttdoc">Determines whether or not every Block stored in the Blockchain instance has a valid nonce.</div><div class="ttdef"><b>Definition:</b> Blockchain.hpp:149</div></div>
 <div class="ttc" id="aclass_blockchain_html_a9cddfd21cb9a6bbc39034eeafaa705cf"><div class="ttname"><a href="class_blockchain.html#a9cddfd21cb9a6bbc39034eeafaa705cf">Blockchain::get_size</a></div><div class="ttdeci">std::size_t get_size()</div><div class="ttdoc">This is the accessor method for the size field.</div><div class="ttdef"><b>Definition:</b> Blockchain.hpp:56</div></div>
 <div class="ttc" id="aclass_blockchain_html_adc3f2145a59d488682b9849ecddf8c81"><div class="ttname"><a href="class_blockchain.html#adc3f2145a59d488682b9849ecddf8c81">Blockchain::get</a></div><div class="ttdeci">std::string get(std::size_t hash)</div><div class="ttdoc">Return a Block object currently being stored in the Blockchain instance by its hash....</div><div class="ttdef"><b>Definition:</b> Blockchain.hpp:101</div></div>
+<div class="ttc" id="aclass_blockchain_html_af4adbbe70861e85a5bcc1c6947b8a139"><div class="ttname"><a href="class_blockchain.html#af4adbbe70861e85a5bcc1c6947b8a139">Blockchain::all_transactions_have_matching_inputs_and_outputs</a></div><div class="ttdeci">bool all_transactions_have_matching_inputs_and_outputs(std::string admin_pub_key=&quot;&quot;)</div><div class="ttdoc">Determines if all the Transactions currently stored in the Blockchain have matching inputs and output...</div><div class="ttdef"><b>Definition:</b> Blockchain.hpp:193</div></div>
 <div class="ttc" id="aclass_blockchain_html_afb66c736ee870ebf75913d01a50f87a4"><div class="ttname"><a href="class_blockchain.html#afb66c736ee870ebf75913d01a50f87a4">Blockchain::Blockchain</a></div><div class="ttdeci">Blockchain()</div><div class="ttdoc">The constructor creates an empty Blockchain instance with the size set to zero.</div><div class="ttdef"><b>Definition:</b> Blockchain.hpp:32</div></div>
-<div class="ttc" id="aclass_genesis_block_html"><div class="ttname"><a href="class_genesis_block.html">GenesisBlock</a></div><div class="ttdoc">A GenesisBlock is a subclass of the Block class. A GenesisBlock holds all the same data and methods a...</div><div class="ttdef"><b>Definition:</b> Block.hpp:237</div></div>
+<div class="ttc" id="aclass_genesis_block_html"><div class="ttname"><a href="class_genesis_block.html">GenesisBlock</a></div><div class="ttdoc">A GenesisBlock is a subclass of the Block class. A GenesisBlock holds all the same data and methods a...</div><div class="ttdef"><b>Definition:</b> Block.hpp:239</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -120,7 +120,7 @@ class Blockchain {
             try {
                 Block block = Block(get(block_hash));
                 return block.get(transaction_hash);
-            } catch(...) {
+            } catch(const std::exception &exc) {
                 return "";
             }
         }
@@ -179,6 +179,30 @@ class Blockchain {
                     inputs_list.push_back(std::to_string(input_block) + "_" + std::to_string(input_tx));
                 }
             }
+
+            return true;
+        }
+
+        /**
+         * @brief Determines if all the Transactions currently stored in the Blockchain have matching inputs and output.
+         * This just means that every Transaction is spending tokens that belong to that particular author.
+         * @param admin_pub_key This allows for an <i>admin key</i> to be specified. Any Transactions authored by this user
+         * will be excempt.
+         * @return Returns whether or not every Transaction is spending tokens that it has.
+         */
+        bool all_transactions_have_matching_inputs_and_outputs(std::string admin_pub_key = "") {
+            if (this->size == 0)
+                return false;
+
+            for (json block : this->blocks)
+                for (json tx : block["blocks"]) {
+                    if (tx["author"] != admin_pub_key && admin_pub_key != "") {
+                        std::string txin = get(tx["input"]["block"], tx["input"]["tx"]);
+
+                        if (txin == "" || json::parse(txin)["output"]["reciever"] != tx["author"])
+                            return false;
+                    }
+                }
 
             return true;
         }

@@ -199,6 +199,8 @@ class Block {
                 if (verbose)
                     std::cout << "Nonce: " << this->nonce << " PoW: " << (std::hash<std::string>()(std::to_string(this->hash) + std::to_string(this->last_block) + std::to_string(this->nonce))) << std::endl;
             }
+
+            this->json_data["nonce"] = this->nonce;
         }
 
         /**

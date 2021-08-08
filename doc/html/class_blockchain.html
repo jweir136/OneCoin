@@ -107,6 +107,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8e0323c2e32f4d8506e2eb17e989d678"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blockchain.html#a8e0323c2e32f4d8506e2eb17e989d678">all_transactions_have_unique_input</a> ()</td></tr>
 <tr class="memdesc:a8e0323c2e32f4d8506e2eb17e989d678"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether or not every Transaction object in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> has a unique input block and transaction hash. It is important that each Transaction object has a unique input in order to avoid double spending tokens.  <a href="class_blockchain.html#a8e0323c2e32f4d8506e2eb17e989d678">More...</a><br /></td></tr>
 <tr class="separator:a8e0323c2e32f4d8506e2eb17e989d678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4adbbe70861e85a5bcc1c6947b8a139"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blockchain.html#af4adbbe70861e85a5bcc1c6947b8a139">all_transactions_have_matching_inputs_and_outputs</a> (std::string admin_pub_key=&quot;&quot;)</td></tr>
+<tr class="memdesc:af4adbbe70861e85a5bcc1c6947b8a139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if all the Transactions currently stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> have matching inputs and output. This just means that every Transaction is spending tokens that belong to that particular author.  <a href="class_blockchain.html#af4adbbe70861e85a5bcc1c6947b8a139">More...</a><br /></td></tr>
+<tr class="separator:af4adbbe70861e85a5bcc1c6947b8a139"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> object is the main data structure in OneCoin. A <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> object is simply a linked list used to store all the <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> data types. Each <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> is held together by a nonce. The nonce is just a way of ensuring that the Blocks won't be altered once they are added to the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a>. </p>
@@ -200,6 +203,41 @@ Public Member Functions</h2></td></tr>
 
 <p>Determines whether or not every <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance has a valid signature. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if every single <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> instance is correctly signed. Returns false if even one <a class="el" href="class_block.html" title="A Block object is the entire foundation of the most fundamental data structure in bitcoin,...">Block</a> in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> has an invalid signature. </dd></dl>
+
+</div>
+</div>
+<a id="af4adbbe70861e85a5bcc1c6947b8a139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4adbbe70861e85a5bcc1c6947b8a139">&#9670;&nbsp;</a></span>all_transactions_have_matching_inputs_and_outputs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Blockchain::all_transactions_have_matching_inputs_and_outputs </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>admin_pub_key</em> = <code>&quot;&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determines if all the Transactions currently stored in the <a class="el" href="class_blockchain.html" title="A Blockchain object is the main data structure in OneCoin. A Blockchain object is simply a linked lis...">Blockchain</a> have matching inputs and output. This just means that every Transaction is spending tokens that belong to that particular author. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">admin_pub_key</td><td>This allows for an <em>admin key</em> to be specified. Any Transactions authored by this user will be excempt. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns whether or not every Transaction is spending tokens that it has. </dd></dl>
 
 </div>
 </div>

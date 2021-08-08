@@ -202,7 +202,7 @@ namespace Tx {
                 return std::hash<std::string>()(
                     std::to_string(this->epoch) +
                     this->author +
-                    this->signature +
+                    //this->signature + // TODO THIS IS A FATAL ERROR : BUT WHY???
                     std::to_string(this->input_hash) +
                     std::to_string(this->output_hash)
                 );
